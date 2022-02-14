@@ -6,10 +6,16 @@ const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  body {
+    font-family: "Apple SD Gothic Neo";
+  }
+
   a {
     color:inherit;
     text-decoration: none;
   }
+  
   button{
     padding: 0;
     margin: 0;
