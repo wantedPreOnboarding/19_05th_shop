@@ -8,4 +8,6 @@ export const TabMenuWrapper = styled.div`
 export const TabMenuItem = styled.button`
   all: unset;
   padding: 10px 14px 9px;
+  color: ${({ theme }) => theme.colors.black};
+  font-size: ${({ theme }) => theme.fontSize.s};
 `;
