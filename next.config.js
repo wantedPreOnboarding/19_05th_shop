@@ -2,14 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    BASE_URL: "localhost:3000",
+    BASE_URL: 'localhost:3000',
+    REACT_APP_ASSET_PATH: '/assets',
   },
   webpack(conf) {
     conf.module.rules.push({
       test: /\.svg$/,
       use: [
         {
-          loader: "@svgr/webpack",
+          loader: '@svgr/webpack',
         },
       ],
     });
@@ -17,6 +18,6 @@ const nextConfig = {
     conf.resolve.modules.push(__dirname);
     return conf;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
