@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-const GrobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   ${reset}
   * {
     box-sizing: border-box;
@@ -19,4 +19,4 @@ const GrobalStyles = createGlobalStyle`
   }
 `;
 
-export default GrobalStyles;
+export default GlobalStyles;
