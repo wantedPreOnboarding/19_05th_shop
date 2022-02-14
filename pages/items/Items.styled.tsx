@@ -14,4 +14,11 @@ export const ItemsLayout = styled.section`
   > section {
     padding-top: 18.33px;
   }
+
+  .purchase-btn {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 `;
