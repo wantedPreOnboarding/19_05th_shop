@@ -1,28 +1,39 @@
-import React from 'react';
+import React, { useState, MouseEvent, Touch, TouchEvent } from 'react';
 import * as S from './TabMenu.styled';
+import TabMenuProps from './TabMenu.type';
+import { SCProps } from 'types/props';
 
-const TabMenu = () => {
+const TabMenu = ({ menuData, tabType, selectedMenu }: SCProps<TabMenuProps>) => {
   return (
-    <div>
-      <S.TabMenuContainer>
+    <S.TabMenuContainer>
+      {tabType === 'category' && (
         <S.TabMenuWrapper>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem isSelect>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
-          <S.TabMenuItem>abc</S.TabMenuItem>
+          {menuData.map(item =>
+            item.id === selectedMenu ? (
+              <S.TabMenuItem selected key={item.key}>
+                {item.name}
+              </S.TabMenuItem>
+            ) : (
+              <S.TabMenuItem key={item.key}>{item.name}</S.TabMenuItem>
+            ),
+          )}
         </S.TabMenuWrapper>
-      </S.TabMenuContainer>
-    </div>
+      )}
+
+      {tabType === 'faq' && (
+        <S.TabMenuFlexWrapper>
+          {menuData.map(item =>
+            item.id === selectedMenu ? (
+              <S.TabMenuFnqItem selected key={item.key}>
+                {item.name}
+              </S.TabMenuFnqItem>
+            ) : (
+              <S.TabMenuFnqItem key={item.key}>{item.name}</S.TabMenuFnqItem>
+            ),
+          )}
+        </S.TabMenuFlexWrapper>
+      )}
+    </S.TabMenuContainer>
   );
 };
 
