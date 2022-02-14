@@ -1,15 +1,39 @@
 import React from 'react';
 import * as S from './TitleBar.styled';
-import { TitleProps } from '../AppLayout.type';
-const TitleBar = ({ title }: TitleProps) => {
+import { TitleBarProps } from './TitleBar.type';
+import Link from 'next/link';
+import { YOUCON_MYCON, SERVICE_CENTER } from 'consts/constants';
+
+const TitleBar = ({ title, backPath }: TitleBarProps) => {
   return (
-    <S.Wrapper>
-      <S.TitleBtn
-        src={`${process.env.REACT_APP_ASSET_PATH}/hamburgerBtn.svg`}
-        width="30px"
-        height="30px"
-      />
+    <S.Wrapper title={title}>
+      {title === YOUCON_MYCON ? (
+        <S.LeftBtn
+          src={`${process.env.REACT_APP_ASSET_PATH}/hamburgerBtn.svg`}
+          width="30px"
+          height="30px"
+        />
+      ) : backPath ? (
+        <Link href={backPath}>
+          <S.LeftBtn
+            src={`${process.env.REACT_APP_ASSET_PATH}/back.svg`}
+            width="17px"
+            height="17px"
+          />
+        </Link>
+      ) : (
+        ''
+      )}
       {title && <S.PageTitle>{title}</S.PageTitle>}
+      {title === SERVICE_CENTER && backPath && (
+        <Link href={backPath}>
+          <S.CancleBtn
+            src={`${process.env.REACT_APP_ASSET_PATH}/close.svg`}
+            width="16px"
+            height="16px"
+          />
+        </Link>
+      )}
     </S.Wrapper>
   );
 };
