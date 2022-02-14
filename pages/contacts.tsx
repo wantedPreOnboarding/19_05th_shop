@@ -1,7 +1,11 @@
 import React from 'react';
-
+import { AppLayout } from 'components';
+import { SERVICE_CENTER } from 'consts/constants';
 const Contacts = () => {
-  return <div>Contacts</div>;
+  return (
+    <AppLayout title={SERVICE_CENTER} backPath="/">
+      Categories
+    </AppLayout>
+  );
 };
-
 export default Contacts;
