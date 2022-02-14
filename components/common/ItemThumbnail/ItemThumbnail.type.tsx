@@ -1,7 +1,7 @@
 import { Url } from 'url';
 
 export default interface ItemThumbnailProps {
-  href: Url;
+  href?: string;
   brand?: string;
   ItemName: string;
   discountRate: number;

@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const ItemThumbnail = styled.li`
   list-style: none;
-  display: flex;
-  flex-direction: 'columns';
+  .presentation-a {
+    display: flex;
+  }
 `;
 
 export const ItemThumbnailWrapper = styled.div`

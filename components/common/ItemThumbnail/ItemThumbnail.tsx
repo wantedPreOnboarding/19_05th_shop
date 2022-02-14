@@ -7,7 +7,7 @@ import ItemThumbnailProps from './ItemThumbnail.type';
 import DescThumbnail from './DescThumbnail/DescThumbnail';
 
 const ItemThumbnail = ({
-  href,
+  href = '#',
   brand,
   ItemName,
   discountRate,
@@ -17,7 +17,7 @@ const ItemThumbnail = ({
 }: SCProps<ItemThumbnailProps>): ReactElement => (
   <S.ItemThumbnail className={className}>
     <Link href={href}>
-      <>
+      <a className="presentation-a">
         <S.ItemThumbnailWrapper>
           <Image width="70" height="70" src="/vercel.svg" />
         </S.ItemThumbnailWrapper>
@@ -28,13 +28,9 @@ const ItemThumbnail = ({
           minSellingPrice={minSellingPrice}
           originalPrice={originalPrice}
         />
-      </>
+      </a>
     </Link>
   </S.ItemThumbnail>
 );
 
-ItemThumbnail.defaultProps = {
-  href: '#',
-};
-
-export default ItemThumbnail;
+export default React.memo(ItemThumbnail);
