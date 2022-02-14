@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/globalStyles';
 import { theme } from 'styles/theme';
-import { AppLayout } from 'components';
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
@@ -13,9 +12,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <AppLayout title="니콘내콘">
-          <Component {...pageProps} />
-        </AppLayout>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   );
