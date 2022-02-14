@@ -2,7 +2,27 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   colors: {
-    primary: '#1565C0',
+    black: '#333',
+    white: '#FFFFFF',
+    red: 'red',
+    discountGray: '#999',
+    borderGray: '#ccc',
+    borderRed: '#f75656',
+    backgroundOutsideGray: '#DDDDDD',
+    backgroundInsideGray: '#EEEEEE',
+    sideMenuRed: '#ff5757',
+  },
+  fontSize: {
+    xl: '16px', //상품명, 가격, 고객센터 상담시간 안내 타이틀
+    l: '15px', //타이틀, 고객상담글 내용
+    m: '14px', //할인 가격, 고객센터 소제목, 환불규정 제목
+    s: '13px',
+    xs: '12px', //카테고리 메뉴, 환불규정 및 유의사항 내용
+  },
+  fontWeight: {
+    strong: 600,
+    semiStrong: 500,
+    normal: 'normal',
   },
 };
 
