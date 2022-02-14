@@ -1,7 +1,11 @@
 import React from 'react';
-
+import { AppLayout } from 'components';
 const Categories = () => {
-  return <div>Categories</div>;
+  return (
+    <AppLayout title="카테고리" backPath="/">
+      Categories
+    </AppLayout>
+  );
 };
 
 export default Categories;
