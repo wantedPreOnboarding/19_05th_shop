@@ -5,6 +5,7 @@ const theme: DefaultTheme = {
     black: '#333',
     white: '#FFFFFF',
     red: 'red',
+    gray: '#808080',
     discountGray: '#999',
     borderGray: '#ccc',
     borderRed: '#f75656',
