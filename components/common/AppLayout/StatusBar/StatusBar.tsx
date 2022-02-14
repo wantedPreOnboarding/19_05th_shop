@@ -1,10 +1,13 @@
 import React from 'react';
 import * as S from './StatusBar.styled';
-import { PathNameProps } from '../AppLayout.type';
-const StatusBar = ({ pathName }: PathNameProps) => {
+import { useRouter } from 'next/router';
+
+const StatusBar = () => {
+  const router = useRouter();
+  const pathName = router.pathname.split('/')[1];
   return (
     <S.FullBar>
-      {pathName && pathName === 'category' ? (
+      {pathName && pathName === 'categories' ? (
         ''
       ) : (
         <>
