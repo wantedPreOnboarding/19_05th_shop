@@ -1,20 +1,30 @@
-import React, { useState, MouseEvent, Touch, TouchEvent } from 'react';
-import * as S from './TabMenu.styled';
-import TabMenuProps from './TabMenu.type';
+import React from 'react';
+import { useRouter } from 'next/router';
 import { SCProps } from 'types/props';
+import TabMenuProps from './TabMenu.type';
+import * as S from './TabMenu.styled';
 
-const TabMenu = ({ menuData, tabType, selectedMenu }: SCProps<TabMenuProps>) => {
+const TabMenu = ({ menuData, tabType }: SCProps<TabMenuProps>) => {
+  const router = useRouter();
+  const selectedMenu = router.query.id;
+
   return (
     <S.TabMenuContainer>
       {tabType === 'category' && (
         <S.TabMenuWrapper>
           {menuData.map(item =>
             item.id === selectedMenu ? (
-              <S.TabMenuItem selected key={item.key}>
+              <S.TabMenuItem
+                selected
+                key={item.key}
+                onClick={() => router.push(`/categories/${item.id}`)}
+              >
                 {item.name}
               </S.TabMenuItem>
             ) : (
-              <S.TabMenuItem key={item.key}>{item.name}</S.TabMenuItem>
+              <S.TabMenuItem key={item.key} onClick={() => router.push(`/categories/${item.id}`)}>
+                {item.name}
+              </S.TabMenuItem>
             ),
           )}
         </S.TabMenuWrapper>
