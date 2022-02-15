@@ -16,13 +16,13 @@ const TabMenu = ({ menuData, tabType, qaType, setSelectType }: TabMenuProps) => 
             item.id === SELECTED_MENU ? (
               <S.TabMenuItem
                 selected
-                key={item.key}
+                key={item.id}
                 onClick={() => router.push(`/categories/${item.id}`)}
               >
                 {item.name}
               </S.TabMenuItem>
             ) : (
-              <S.TabMenuItem key={item.key} onClick={() => router.push(`/categories/${item.id}`)}>
+              <S.TabMenuItem key={item.id} onClick={() => router.push(`/categories/${item.id}`)}>
                 {item.name}
               </S.TabMenuItem>
             ),
@@ -34,11 +34,11 @@ const TabMenu = ({ menuData, tabType, qaType, setSelectType }: TabMenuProps) => 
         <S.TabMenuFlexWrapper>
           {menuData?.map(item =>
             item.id === qaType ? (
-              <S.TabMenuFnqItem selected key={item.key} onClick={() => setSelectType(item.id)}>
+              <S.TabMenuFnqItem selected key={item.key} onClick={() => setSelectType?.(item.id)}>
                 {item.name}
               </S.TabMenuFnqItem>
             ) : (
-              <S.TabMenuFnqItem key={item.key} onClick={() => setSelectType(item.id)}>
+              <S.TabMenuFnqItem key={item.key} onClick={() => setSelectType?.(item.id)}>
                 {item.name}
               </S.TabMenuFnqItem>
             ),

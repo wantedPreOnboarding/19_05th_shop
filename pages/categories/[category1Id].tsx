@@ -22,7 +22,7 @@ const Categories = ({ data, name }: CategoriesProps) => {
       <TabMenu menuData={tab} tabType="category" />
       <S.List>
         {data.map(item => (
-          <Category page="categories" key={item.id} item={item} />
+          <Category page="brands" key={item.id} item={item} />
         ))}
       </S.List>
     </AppLayout>
