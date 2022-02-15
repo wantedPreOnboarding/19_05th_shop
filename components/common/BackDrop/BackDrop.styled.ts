@@ -8,4 +8,5 @@ export const BackDrop = styled.div`
   right: 0;
   background-color: #000;
   opacity: 0.5;
+  cursor: pointer;
 `;
