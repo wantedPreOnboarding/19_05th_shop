@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { SideMenuProps } from './SideMenu.type';
-import * as S from './SideMenu.style';
+import { MyPageProps } from './MyPage.type';
+import * as S from './MyPage.style';
 
-const SideMenu = ({ sideMenuHandle, openSideMenu }: SideMenuProps) => {
+const MyPage = ({ sideMenuHandle, openSideMenu }: MyPageProps) => {
   return (
     <S.MenuContainer openSideMenu={openSideMenu}>
       <S.Nav>
@@ -74,4 +74,4 @@ const SideMenu = ({ sideMenuHandle, openSideMenu }: SideMenuProps) => {
   );
 };
 
-export default SideMenu;
+export default MyPage;

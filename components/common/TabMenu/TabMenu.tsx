@@ -1,19 +1,20 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { SCProps } from 'types/props';
 import TabMenuProps from './TabMenu.type';
+import { TAB_MENU_CATEGORY, TAB_MENU_FAQ } from 'consts/constants';
 import * as S from './TabMenu.styled';
 
-const TabMenu = ({ menuData, tabType }: SCProps<TabMenuProps>) => {
+const TabMenu = ({ menuData, tabType, qaType }: TabMenuProps) => {
   const router = useRouter();
-  const selectedMenu = router.query.id;
+
+  const SELECTED_MENU = router.query.id;
 
   return (
     <S.TabMenuContainer>
-      {tabType === 'category' && (
+      {tabType === TAB_MENU_CATEGORY && (
         <S.TabMenuWrapper>
           {menuData.map(item =>
-            item.id === selectedMenu ? (
+            item.id === SELECTED_MENU ? (
               <S.TabMenuItem
                 selected
                 key={item.key}
@@ -30,10 +31,10 @@ const TabMenu = ({ menuData, tabType }: SCProps<TabMenuProps>) => {
         </S.TabMenuWrapper>
       )}
 
-      {tabType === 'faq' && (
+      {tabType === TAB_MENU_FAQ && (
         <S.TabMenuFlexWrapper>
           {menuData.map(item =>
-            item.id === selectedMenu ? (
+            item.id === qaType ? (
               <S.TabMenuFnqItem selected key={item.key}>
                 {item.name}
               </S.TabMenuFnqItem>
