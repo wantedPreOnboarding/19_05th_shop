@@ -8,8 +8,14 @@ const FullWitdhButton = ({
   children,
   backgroundColor,
   color,
+  onClick,
 }: SCProps<FullWidthButtonProps>): ReactElement => (
-  <S.FullWidthButton className={className} backgroundColor={backgroundColor} color={color}>
+  <S.FullWidthButton
+    onClick={onClick}
+    className={className}
+    backgroundColor={backgroundColor}
+    color={color}
+  >
     {children}
   </S.FullWidthButton>
 );
