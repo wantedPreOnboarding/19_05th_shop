@@ -47,38 +47,56 @@
 
 ## 4. 📄 협업 문서
 
-[프로젝트 노션 바로가기]()
+[프로젝트 노션 바로가기](https://www.notion.so/3-1-ecaf2690a9fa4a05845399140b9838b5)
 
 ## 5. 👩‍💻 기능 목록 명세
 
 ### ✔ 담당자 : 김영종
 
+- 프로젝트 배포
+- 상품 상세 페이지
+- E2E 테스트
+
 ### ✔ 담당자 : 정다빈
+
+- 프로젝트 초기 세팅
+- 고객센터 Q&A
+- 햄버거 버튼 눌렀을 때, 마이 페이지 및 고객센터 페이지
 
 ### ✔ 담당자 : 최수임
 
+- 메인 페이지
+- 404 페이지
+- 공통 레이아웃
+
 ### ✔ 담당자 : 이송현
 
-### ✔ 담당자 : 팀 전체
+- 메뉴 카테고리에 따라서 브랜드 페이지
+- 브랜드 페이지 연관된 상품 리스트 페이지
 
 ## 6. 💿 설치 및 실행 방법
 
 Project Clone
 
 ```bash
-$
+$ git clone https://github.com/wantedPreOnboarding/19_05th_shop/tree/develop
 ```
 
 Project Setup
 
 ```bash
-$
+$ yarn install
 ```
 
 Project Start For Development
 
 ```bash
-$
+$ yarn dev
 ```
 
 ## 7. 🛠️ 기술 스택
+
+- Next.js
+- typeScript
+- axios
+- git flow
