@@ -10,7 +10,7 @@ export const PaddedItemThumbnail = styled(ItemThumbnail)`
 
 export const ItemsLayout = styled.section`
   padding: 17px;
-
+  margin-bottom: 77px;
   > section {
     padding-top: 18.33px;
   }
