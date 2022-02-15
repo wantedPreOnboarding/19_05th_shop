@@ -12,8 +12,12 @@ export const OptionSelector = styled.div`
     display: flex;
     background-color: ${props => props.theme.colors.ligthGray};
     align-items: center;
+    justify-content: space-between;
     height: 49px;
     padding: 16px 17px;
+    > img {
+      cursor: pointer;
+    }
   }
 `;
 export const Select = styled.div`
