@@ -3,7 +3,7 @@ import { AppLayout, TabMenu } from 'components/common';
 
 import { SERVICE_CENTER } from 'consts/constants';
 import * as S from './contacts.style';
-import ContactContents from 'components/contacts/ContactContents';
+import ContactContents from 'components/contacts/ContactContents/ContactContents';
 const Contacts = () => {
   return (
     <AppLayout title={SERVICE_CENTER} backPath="/">
