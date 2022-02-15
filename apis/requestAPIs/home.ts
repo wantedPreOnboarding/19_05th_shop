@@ -1,8 +1,8 @@
 import requests from '../core';
-import { MainCategoriesType, ConItemsType } from '../models/Home.type';
-import { URL_MAIN_CATEGORIES, URL_DISCOUNT_ITEM } from '../consts';
+import { ConItemsType, MainCategoriesType } from '../models/Home.type';
+import { URL } from '../consts';
 
 export const get = {
-  mainCategories: (): Promise<MainCategoriesType> => requests.get(URL_MAIN_CATEGORIES),
-  discountItems: (): Promise<ConItemsType> => requests.get(URL_DISCOUNT_ITEM),
+  mainCategories: requests.get<MainCategoriesType>(URL.MAIN_CATEGORIES),
+  discountItems: requests.get<ConItemsType>(URL.DISCOUNT_ITEM),
 };

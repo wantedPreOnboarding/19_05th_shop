@@ -8,18 +8,10 @@ const TitleBar = ({ title, backPath }: TitleBarProps) => {
   return (
     <S.Wrapper title={title}>
       {title === YOUCON_MYCON ? (
-        <S.LeftBtn
-          src={`${process.env.REACT_APP_ASSET_PATH}/hamburgerBtn.svg`}
-          width="30px"
-          height="30px"
-        />
+        <S.LeftBtn src={`${process.env.ASSET_PATH}/hamburgerBtn.svg`} width="30px" height="30px" />
       ) : backPath ? (
         <Link href={backPath}>
-          <S.LeftBtn
-            src={`${process.env.REACT_APP_ASSET_PATH}/back.svg`}
-            width="17px"
-            height="17px"
-          />
+          <S.LeftBtn src={`${process.env.ASSET_PATH}/back.svg`} width="17px" height="17px" />
         </Link>
       ) : (
         ''
@@ -27,11 +19,7 @@ const TitleBar = ({ title, backPath }: TitleBarProps) => {
       {title && <S.PageTitle>{title}</S.PageTitle>}
       {title === SERVICE_CENTER && backPath && (
         <Link href={backPath}>
-          <S.CancleBtn
-            src={`${process.env.REACT_APP_ASSET_PATH}/close.svg`}
-            width="16px"
-            height="16px"
-          />
+          <S.CancleBtn src={`${process.env.ASSET_PATH}/close.svg`} width="16px" height="16px" />
         </Link>
       )}
     </S.Wrapper>
