@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
-import Arrow from 'public/assets/back.svg';
 
-export const MenuContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
+export const MenuContainer = styled.div<{ openSideMenu: boolean }>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: ${props => (props.openSideMenu ? 'translateX(0px)' : 'translateX(-100%)')};
+  transition: transform 0.5s ease-in-out;
   z-index: 66;
   background-color: ${({ theme }) => theme.colors.white};
 `;
