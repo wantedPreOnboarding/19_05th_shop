@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppLayout } from 'components';
+import { AppLayout } from 'components/common';
 import { SERVICE_CENTER } from 'consts/constants';
 const Contacts = () => {
   return (
