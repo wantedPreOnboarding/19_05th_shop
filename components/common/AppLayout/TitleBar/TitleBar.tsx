@@ -29,7 +29,7 @@ const TitleBar = ({ title, sideMenuHandler }: TitleBarProps) => {
       {title && <S.PageTitle>{title}</S.PageTitle>}
       {title === SERVICE_CENTER && (
         <Link href="/">
-          <S.CancleBtn src={`${process.env.ASSET_PATH}/close.svg`} width="16px" height="16px" />
+          <S.CancleBtn src={`${process.env.ASSET_PATH}/close.svg`} width="20px" height="20px" />
         </Link>
       )}
     </S.Wrapper>
