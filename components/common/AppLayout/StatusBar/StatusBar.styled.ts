@@ -6,6 +6,7 @@ export const FullBar = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 13px 18px;
+  background: ${props => props.theme.colors.white};
 `;
 
 export const SettingIcons = styled.div`

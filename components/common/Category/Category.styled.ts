@@ -10,7 +10,6 @@ export const Item = styled.li`
   border-radius: 5px;
   background: #fff;
   cursor: pointer;
-
   :nth-last-of-type(3n) {
     margin-right: 0;
   }

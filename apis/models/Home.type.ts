@@ -53,12 +53,3 @@ export interface ConItem {
     };
   };
 }
-
-export interface DiscountCon {
-  name: string;
-  imageUrl: string;
-  brand: string;
-  discountRate: number;
-  originalPrice: number;
-  minSellingPrice: number;
-}

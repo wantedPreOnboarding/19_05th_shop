@@ -7,6 +7,7 @@ import * as S from './Category.styled';
 
 const Category = ({ item }: CategoryProps) => {
   const router = useRouter();
+  const pathName = router.pathname.split('/')[1];
   return (
     <S.Item>
       <Link href={{
