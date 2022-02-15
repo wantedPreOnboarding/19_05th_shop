@@ -14,7 +14,7 @@ export default interface TabMenuProps {
       qaTypes?: QaItems[];
     },
   ];
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  setSelectType?: React.Dispatch<React.SetStateAction<number>>;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  setSelectType: React.Dispatch<React.SetStateAction<number>>;
   selectedMenu?: number | string;
 }

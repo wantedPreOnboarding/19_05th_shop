@@ -6,7 +6,6 @@ import * as S from './TabMenu.styled';
 
 const TabMenu = ({ menuData, tabType, qaType, setSelectType }: TabMenuProps) => {
   const router = useRouter();
-  console.log(router);
   const SELECTED_MENU = Number(router.query.category1Id);
 
   return (

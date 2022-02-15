@@ -7,10 +7,13 @@ export interface ContactType {
   id: number;
   name: string;
   key: string;
+  qaTypes: ContactType[];
 }
 
 export interface QaItems {
   id: number;
   question: string;
   answer: string;
+  qas: QaItems[];
+  qaTypes: ContactType[];
 }
