@@ -10,14 +10,15 @@ const Category = ({ item }: CategoryProps) => {
   return (
     <S.Item>
       <Link href={{
-        pathname: `/brands/${item.id}`
+        pathname: `/brands/${item.id}`,
+        query: { category1Id: item.conCategory1Id }
       }}>
         <S.ImgWrapper>
           <img src={item.imageUrl} alt={item.imageUrl} />
           <span>{item.name}</span>
         </S.ImgWrapper>
       </Link>
-    </S.Item>
+    </S.Item >
   );
 };
 
