@@ -1,0 +1,24 @@
+export interface BrandsAPIType {
+  id: number;
+  name: string;
+  discountRate: number;
+  imageUrl: string;
+  conCategory2s: ConCategory2s[];
+}
+
+export interface ConCategory2s {
+  id: number;
+  name: string;
+  conCategory1Id: number;
+  imageUrl: string;
+  conItems: ContItems[];
+}
+
+export interface ContItems {
+  id: number;
+  name: string;
+  originalPrice: number;
+  minSellingPrice: number;
+  count: number;
+  imageUrl: string;
+}
