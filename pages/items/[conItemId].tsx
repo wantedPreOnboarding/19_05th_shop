@@ -19,20 +19,22 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
     warning,
   } = data;
 
+  console.log(data.options);
+
   const brandCautionList = brandInfo.info.split('\n').map(indexGenerator);
 
   const itemCautionList = brandInfo.conCategory1.info.split('\n').map(indexGenerator);
 
-  const refundRuleList = warning
-    .slice(warning.indexOf('[환불규정]'))
-    .split('\n')
-    .map(caution => caution.replace(' -', '·'))
-    .slice(1)
-    .map(indexGenerator);
+  // const refundRuleList = warning
+  //   .slice(warning.indexOf('[환불규정]'))
+  //   .split('\n')
+  //   .map(caution => caution.replace(' -', '·'))
+  //   .slice(1)
+  //   .map(indexGenerator);
 
   return (
     <S.ItemsLayout>
-      <S.PaddedItemThumbnail
+      {/* <S.PaddedItemThumbnail
         brand={brandInfo.name}
         ItemName={itemName}
         discountRate={discountRate}
@@ -48,7 +50,7 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
       {warning && <TextsSection sectionTitle="환불규정" texts={refundRuleList} />}
       <FullWidthButton className="purchase-btn" backgroundColor="sideMenuRed" color="white">
         옵션 선택하기
-      </FullWidthButton>
+      </FullWidthButton> */}
     </S.ItemsLayout>
   );
 };

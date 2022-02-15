@@ -12,8 +12,8 @@ declare module 'styled-components' {
       discountGray: '#999';
       borderGray: '#ccc';
       borderRed: '#f75656';
-      backgroundOutsideGray: '#DDDDDD';
-      backgroundInsideGray: '#EEEEEE';
+      backgroundOutsideGray: '#E5E5E5';
+      backgroundInsideGray: '#F1F3F4';
       sideMenuRed: '#ff5757';
     };
     fontSize: {

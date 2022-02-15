@@ -9,7 +9,6 @@ export const ItemThumbnail = styled.li`
 
 export const ItemThumbnailWrapper = styled.div`
   padding: 2px;
-  background-color: #f1f3f4;
   border-radius: 5px;
   display: flex;
   align-items: center;

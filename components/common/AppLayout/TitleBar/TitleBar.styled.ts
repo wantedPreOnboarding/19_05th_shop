@@ -9,9 +9,10 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: ${props => props.title === SERVICE_CENTER && '10px'};
+  background: ${props => props.theme.colors.white};
 `;
 export const PageTitle = styled.span`
-  font-weight: 700;
+  font-weight: ${props => props.theme.fontWeight.strong};
   font-size: ${props => props.theme.fontSize.l};
   display: flex;
   justify-content: center;

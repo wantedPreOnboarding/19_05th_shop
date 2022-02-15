@@ -7,5 +7,4 @@ export const List = styled.ul`
   margin-block-end: 0;
   padding-inline-start: 0;
   padding: 20px;
-  background: #f1f3f4;
 `;

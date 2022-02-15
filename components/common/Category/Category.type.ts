@@ -1,5 +1,6 @@
-import { ContItems } from 'apis/models/Categories.type';
+import { ContItems, ConCategory2s } from 'apis/models/Categories.type';
 
 export default interface CategoryProps {
-  item: ContItems;
+  item: ConCategory2s;
+  page: 'categories' | 'brands';
 }
