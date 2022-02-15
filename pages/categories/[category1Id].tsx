@@ -11,7 +11,7 @@ const Categories = ({ data, name }: CategoriesProps) => {
   return (
     <AppLayout title={name} backPath="/">
       <S.List>
-        {data.map(item => <Category key={item.id} item={item} />)}
+        {data.map(item => <Category key={item.id} item={item} page='brands' />)}
       </S.List>
     </AppLayout>
   );

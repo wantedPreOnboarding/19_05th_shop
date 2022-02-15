@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppLayout } from 'components/common';
-import commaNumber from 'uilts/commaNumber';
+import { commaNumber } from 'utils';
 import BrandsProps from './Brands.type';
 import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/categories';
@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category2Id, category1Id } = context.query;
 
   const data = typeof category1Id === 'string' ? await get.categories(category1Id) : null;
-  const category2 = typeof category2Id === 'string' ? data?.conCategory1.conCategory2s?.find((conCategory2) => +conCategory2.id === +category2Id) : null;
+  const category2 = typeof category2Id === 'string' ? data?.conCategory1?.conCategory2s?.find((conCategory2) => +conCategory2.id === +category2Id) : null;
   return {
     props: {
       name: category2?.name,
