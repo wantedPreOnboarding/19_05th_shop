@@ -1,20 +1,42 @@
 import styled from 'styled-components';
 
-export const List = styled.ul`
+export const Item = styled.li`
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding-inline-start: 0;
-  padding: 0 20px;
+  flex: 32% 0 0;
+  justify-content: center;
+  align-items: center;
+  height: 94px;
+  margin: 1px;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+
+  :nth-last-of-type(3n) {
+    margin-right: 0;
+  }
 `;
 
-export const Item = styled.li`
-  flex: 33% 0 0;
-  padding: 40px 0;
-  margin-bottom: 1px;
+export const ImgWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  border-radius: 5px;
   text-align: center;
+
+  img {
+    width: 36px;
+    padding-bottom: 15px;
+  }
+
+  span {
+    font-family: Apple SD Gothic Neo;
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.25s ease-out, 0.25s ease-out;
+  }
 `;
