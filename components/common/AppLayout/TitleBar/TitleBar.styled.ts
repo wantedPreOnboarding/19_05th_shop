@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   padding-top: ${props => props.title === SERVICE_CENTER && '20px'};
   background: ${props => props.theme.colors.white};
 `;
-export const PageTitle = styled.span`
+export const PageTitle = styled.h1`
   font-weight: ${props => props.theme.fontWeight.strong};
   font-size: ${props => props.theme.fontSize.l};
   display: flex;
