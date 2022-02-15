@@ -5,7 +5,7 @@ import { AppLayout } from 'components/common';
 import { YOUCON_MYCON } from 'consts/constants';
 import { get } from 'apis/requestAPIs/home';
 import { MainCategory, DiscountCon } from 'apis/models/Home.type';
-import { MainCategories, DiscountItem } from 'components/mainHome';
+import { MainCategories, DiscountItem, BannerSlider } from 'components/mainHome';
 
 const Home: NextPage = () => {
   const [categories, setCategories] = useState<MainCategory[]>();
@@ -39,6 +39,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AppLayout title={YOUCON_MYCON}>
+        <BannerSlider />
         {categories && <MainCategories categories={categories} />}
         {disItems && <DiscountItem disItems={disItems} />}
       </AppLayout>
