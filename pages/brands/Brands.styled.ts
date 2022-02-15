@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+export const CountBox = styled.div`
+  width: 100%;
+  height: 40px;
+  margin-top: 1px;
+  background: ${({ theme }) => theme.colors.white};
+  padding: 12px 17px;
+  font-size: ${props => props.theme.fontSize.m};
+  font-weight: ${props => props.theme.fontWeight.strong};
+  span {
+    opacity: 80%;
+  }
+`;
+
 export const List = styled.ul`
   margin-block-start: 0;
   margin-block-end: 0;

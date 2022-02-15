@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppLayout } from 'components/common';
-import { commaNumber } from 'utils';
+import { commaNumber, tensDigit } from 'utils';
 import BrandsProps from './Brands.type';
 import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/categories';
@@ -9,6 +9,10 @@ import * as S from './Brands.styled';
 const Brands = ({ name, data }: BrandsProps) => {
   return (
     <AppLayout title={name}>
+      <S.CountBox>
+        {tensDigit(data.length)}
+        <span>개의 상품</span>
+      </S.CountBox>
       <S.List>
         {data.map(item => {
           const saleResult = `${(item.originalPrice - item.minSellingPrice) * 0.01}`;
