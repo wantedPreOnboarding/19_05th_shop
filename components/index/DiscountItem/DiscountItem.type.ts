@@ -1,6 +1,7 @@
 export type DiscountCon = {
   disItems: {
-    name: string;
+    href: string;
+    itemName: string;
     imageUrl: string;
     brand: string;
     discountRate: number;

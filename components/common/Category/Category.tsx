@@ -5,15 +5,18 @@ import * as S from './Category.styled';
 
 const Category = ({ item }: CategoryProps) => {
   const router = useRouter();
+  const pathName = router.pathname.split('/')[1];
   return (
-    <>
-      <S.Item onClick={() => router.push(`/brands/${item.id}`)}>
-        <S.ImgWrapper>
-          <img src={item.imageUrl} alt={item.imageUrl} />
-          <span>{item.name}</span>
-        </S.ImgWrapper>
-      </S.Item>
-    </>
+    <S.Item
+      onClick={() =>
+        router.push(pathName === 'categories' ? `/brands/${item.id}` : `/categories/${item.id}`)
+      }
+    >
+      <S.ImgWrapper>
+        <img src={item.imageUrl} alt={item.imageUrl} />
+        <span>{item.name}</span>
+      </S.ImgWrapper>
+    </S.Item>
   );
 };
 

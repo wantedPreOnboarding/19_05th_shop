@@ -7,7 +7,7 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background: #e2e2e2;
+  background: #e5e5e5;
 `;
 
 export const Layout = styled.div`
@@ -17,7 +17,7 @@ export const Layout = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: white;
+  background: ${props => props.theme.colors.backgroundInsideGray};
   display: flex;
   flex-direction: column;
 `;
