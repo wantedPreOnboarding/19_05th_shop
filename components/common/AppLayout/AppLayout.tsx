@@ -1,7 +1,9 @@
 import React from 'react';
 import { AppLayoutProps } from './AppLayout.type';
 import * as S from './AppLayout.styled';
-import { StatusBar, TitleBar, ChildrenContent } from 'components';
+import StatusBar from './StatusBar/StatusBar';
+import ChildrenContent from './ChildrenContent/ChildrenContent';
+import TitleBar from './TitleBar/TitleBar';
 
 import { SERVICE_CENTER } from 'consts/constants';
 const AppLayout = ({ title, backPath, children }: AppLayoutProps) => {
