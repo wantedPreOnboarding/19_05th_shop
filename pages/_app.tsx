@@ -1,9 +1,17 @@
-import type { AppProps } from 'next/app';
+import { NextComponentType } from 'next';
+import type { AppContext, AppInitialProps, AppLayoutProps } from 'next/app';
 import Head from 'next/head';
+import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/globalStyles';
 import { theme } from 'styles/theme';
-const App = ({ Component, pageProps }: AppProps) => {
+
+const App: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
+  Component,
+  pageProps,
+}: AppLayoutProps) => {
+  const getLayout = Component.getLayout || ((page: ReactNode) => page);
+
   return (
     <>
       <Head>
@@ -11,9 +19,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <title>너와 나의 콘콘 [19조]</title>
       </Head>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>{getLayout(<Component {...pageProps} />)}</ThemeProvider>
     </>
   );
 };

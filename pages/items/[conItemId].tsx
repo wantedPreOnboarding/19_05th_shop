@@ -1,51 +1,68 @@
-import { ItemThumbnail } from 'components/common';
 import * as S from './Items.styled';
 
-import React from 'react';
-import { FullWidthButton } from 'components/common';
+import React, { ReactNode } from 'react';
+import { AppLayout, FullWidthButton } from 'components/common';
 import { TextsSection } from 'components/items';
+import { GetServerSideProps } from 'next';
+import { get } from 'apis/requestAPIs/items';
+import ItemAPIType from 'apis/models/Items.type';
 
-const Items = () => {
+const indexGenerator = (caution: string, index: number) => ({ id: index, text: caution });
+
+const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
+  const {
+    name: itemName,
+    conCategory2: brandInfo,
+    discountRate,
+    minSellingPrice,
+    originalPrice,
+    warning,
+  } = data;
+
+  const brandCautionList = brandInfo.info.split('\n').map(indexGenerator);
+
+  const itemCautionList = brandInfo.conCategory1.info.split('\n').map(indexGenerator);
+
+  const refundRuleList = warning
+    .slice(warning.indexOf('[환불규정]'))
+    .split('\n')
+    .map(caution => caution.replace(' -', '·'))
+    .slice(1)
+    .map(indexGenerator);
+
   return (
     <S.ItemsLayout>
       <S.PaddedItemThumbnail
-        brand="스타벅스"
-        ItemName="상품명"
-        discountRate={30}
-        minSellingPrice={3000}
-        originalPrice={3000}
+        brand={brandInfo.name}
+        ItemName={itemName}
+        discountRate={discountRate}
+        minSellingPrice={minSellingPrice}
+        originalPrice={originalPrice}
       />
-      <TextsSection
-        sectionTitle="유의사항"
-        texts={[
-          {
-            id: 0,
-            text: '쿠폰 사용시 유효기간 내 사용이 가능 합니다.',
-          },
-          {
-            id: 1,
-            text: '포인트 적립 및 제휴카드 할인 등은 교화넟의 정책에 따릅니다.',
-          },
-        ]}
-      />
-      <TextsSection
-        sectionTitle="환불규정"
-        texts={[
-          {
-            id: 0,
-            text: '쿠폰 사용시 유효기간 내 사용이 가능 합니다.',
-          },
-          {
-            id: 1,
-            text: '포인트 적립 및 제휴카드 할인 등은 교화넟의 정책에 따릅니다.',
-          },
-        ]}
-      />
+      {brandInfo.info && (
+        <TextsSection sectionTitle="브랜드 별 유의사항" texts={brandCautionList} />
+      )}
+      {brandInfo.conCategory1.info && (
+        <TextsSection sectionTitle="유의사항" texts={itemCautionList} />
+      )}
+      {warning && <TextsSection sectionTitle="환불규정" texts={refundRuleList} />}
       <FullWidthButton className="purchase-btn" backgroundColor="sideMenuRed" color="white">
         옵션 선택하기
       </FullWidthButton>
     </S.ItemsLayout>
   );
+};
+
+Items.getLayout = function getLayout(page: ReactNode) {
+  return <AppLayout>{page}</AppLayout>;
+};
+
+export const getServerSideProps: GetServerSideProps = async context => {
+  const { conItemId } = context.query;
+
+  const data = typeof conItemId === 'string' ? await get.items(conItemId) : null;
+
+  return { props: { data: data?.conItem } };
 };
 
 export default Items;

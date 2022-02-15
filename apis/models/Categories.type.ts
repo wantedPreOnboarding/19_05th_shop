@@ -19,8 +19,8 @@ export interface ConCategory2s {
 export interface ContItems {
   id: number;
   name: string;
-  originalPrice?: number;
-  minSellingPrice?: number;
+  originalPrice: number;
+  minSellingPrice: number;
   count?: number;
   imageUrl: string;
 }
