@@ -74,6 +74,10 @@ const BannerSlider = () => {
     }
   }, [currentSlide, cursorOn]);
 
+  useEffect(() => {
+    console.log(window);
+  }, []);
+
   return (
     <S.Wrapper>
       <S.BannerWrap currentSlide={currentSlide}>

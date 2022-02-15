@@ -5,11 +5,17 @@ export const Wrapper = styled.div`
   height: 141px;
   width: 375px;
   position: relative;
+  ${({ theme }) => theme.breakpoints.mobile} {
+    width: 100vw;
+  }
 `;
 export const BannerBox = styled.div`
   img {
     height: 141px;
     width: 375px;
+    ${({ theme }) => theme.breakpoints.mobile} {
+      width: 100vw;
+    }
   }
 `;
 

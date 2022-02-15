@@ -8,6 +8,9 @@ export const Background = styled.div`
   align-items: center;
   padding: 1rem;
   background: #e5e5e5;
+  ${({ theme }) => theme.breakpoints.mobile} {
+    padding: 0px;
+  }
 `;
 
 export const Layout = styled.div`
@@ -20,4 +23,8 @@ export const Layout = styled.div`
   background: ${props => props.theme.colors.backgroundInsideGray};
   display: flex;
   flex-direction: column;
+  ${({ theme }) => theme.breakpoints.mobile} {
+    max-width: none;
+    max-height: none;
+  }
 `;

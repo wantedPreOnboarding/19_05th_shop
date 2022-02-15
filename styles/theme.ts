@@ -25,6 +25,9 @@ const theme: DefaultTheme = {
     semiStrong: 500,
     normal: 'normal',
   },
+  breakpoints: {
+    mobile: '@media screen and (max-width: 480px)',
+  },
 };
 
 export { theme };
