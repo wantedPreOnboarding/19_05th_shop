@@ -1,13 +1,14 @@
 import React from 'react';
-import * as S from './Menu.style';
 import Link from 'next/link';
+import { SideMenuProps } from './SideMenu.type';
+import * as S from './SideMenu.style';
 
-const Menu = () => {
+const SideMenu = ({ sideMenuHandle, openSideMenu }: SideMenuProps) => {
   return (
-    <S.MenuContainer>
+    <S.MenuContainer openSideMenu={openSideMenu}>
       <S.Nav>
         <S.CloseBtn>
-          <S.CloseSvg />
+          <S.CloseSvg onClick={sideMenuHandle} />
         </S.CloseBtn>
       </S.Nav>
       <S.Section>
@@ -73,4 +74,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default SideMenu;

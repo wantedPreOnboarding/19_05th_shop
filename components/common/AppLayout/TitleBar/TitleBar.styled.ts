@@ -25,6 +25,7 @@ const TitleIcon = styled.img`
 
 export const LeftBtn = styled(TitleIcon)`
   left: 10px;
+  cursor: pointer;
 `;
 
 export const CancleBtn = styled(TitleIcon)`
