@@ -105,28 +105,32 @@ export const Ol = styled.ol`
   text-decoration: none;
 `;
 
-export const NiconMoneyHistoryImg = styled.img.attrs({ src: `./assets/niconMoneyHistory.png` })`
+export const NiconMoneyHistoryImg = styled.img.attrs({
+  src: `${process.env.ASSET_PATH}/niconMoneyHistory.png`,
+})`
   width: 50px;
   height: 50px;
   alt: '니콘머니 내역';
   margin: 0 auto 7px;
 `;
 
-export const PurchaseHistoryImg = styled.img.attrs({ src: `./assets/purchaseHistory.png` })`
+export const PurchaseHistoryImg = styled.img.attrs({
+  src: `${process.env.ASSET_PATH}/purchaseHistory.png`,
+})`
   width: 50px;
   height: 50px;
   alt: '구매 내역';
   margin: 0 auto 7px;
 `;
 
-export const ArrowSvg = styled.img.attrs({ src: `./assets/back.svg` })`
+export const ArrowSvg = styled.img.attrs({ src: `${process.env.ASSET_PATH}/back.svg` })`
   width: 19px;
   height: 20px;
   transform: scaleX(-1);
   alt: '이동 버튼';
 `;
 
-export const CloseSvg = styled.img.attrs({ src: `./assets/close.svg` })`
+export const CloseSvg = styled.img.attrs({ src: `${process.env.ASSET_PATH}/close.svg` })`
   width: 30px;
   height: 30px;
   alt: '닫기 버튼';

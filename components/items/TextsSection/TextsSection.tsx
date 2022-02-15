@@ -8,7 +8,7 @@ const TextsSection = ({ sectionTitle, texts }: SCProps<TextsSectionProps>): Reac
     <h3 className="section-title">{sectionTitle}</h3>
     <S.Texts>
       {texts.map(({ id, text }) => (
-        <li key={id}>· {text}</li>
+        <li key={id}>{text}</li>
       ))}
     </S.Texts>
   </S.TextsSection>
