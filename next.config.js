@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    BASE_URL: 'localhost:3000',
-    REACT_APP_ASSET_PATH: '/assets',
+    API_URL: 'https://api2.ncnc.app',
+    ASSET_PATH: '/assets',
   },
   webpack(conf) {
     conf.module.rules.push({
