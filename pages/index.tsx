@@ -35,17 +35,11 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <>
-      <Head>
-        <title>shop</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <AppLayout title={YOUCON_MYCON}>
-        <BannerSlider />
-        {categories && <MainCategories categories={categories} />}
-        {disItems && <DiscountItem disItems={disItems} />}
-      </AppLayout>
-    </>
+    <AppLayout title={YOUCON_MYCON}>
+      <BannerSlider />
+      {categories && <MainCategories categories={categories} />}
+      {disItems && <DiscountItem disItems={disItems} />}
+    </AppLayout>
   );
 };
 export default Home;
