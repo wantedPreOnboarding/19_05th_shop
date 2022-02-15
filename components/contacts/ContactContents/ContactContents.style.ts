@@ -21,7 +21,7 @@ export const ContentWrapper = styled.div<{ contentOpen: boolean }>`
 export const Title = styled.button`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  text-align: start;
   color: ${theme.colors.black};
   font-size: ${theme.fontSize.l};
   font-weight: ${theme.fontWeight.semiStrong};
@@ -29,7 +29,7 @@ export const Title = styled.button`
 `;
 
 export const Q = styled.span`
-  margin-right: 10px;
+  margin-right: 5px;
   color: ${theme.colors.red};
   font-weight: ${theme.fontWeight.semiStrong};
 `;
@@ -47,6 +47,7 @@ export const ArrowDownSvg = styled.img.attrs({
 })<{ contentOpen?: boolean }>`
   width: 16px;
   height: 18px;
+  margin-left: 10px;
   -ms-transform: ${props =>
     props.contentOpen ? `rotate(90deg)` : `rotate(270deg)`}; // IE 9 이상에서 사용
   -webkit-transform: ${props =>
