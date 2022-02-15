@@ -25,10 +25,10 @@ const BannerSlider = () => {
   const mouseUpHandler = (e: BannerMouseEvent) => {
     setMouseUpClientX(e.clientX);
   };
-  const mouseEnterHandler = (e: BannerMouseEvent) => {
+  const mouseEnterHandler = () => {
     setCursorOn(true);
   };
-  const mouseLeaveHandler = (e: BannerMouseEvent) => {
+  const mouseLeaveHandler = () => {
     setCursorOn(false);
   };
 
@@ -47,7 +47,9 @@ const BannerSlider = () => {
     }
   };
   useEffect(() => {
-    mouseUpClientX - mouseDownClientX < 0 ? prevSlide() : nextSlide();
+    if (cursorOn) {
+      mouseUpClientX - mouseDownClientX < 0 ? prevSlide() : nextSlide();
+    }
   }, [mouseUpClientX]);
 
   useEffect(() => {
@@ -70,8 +72,8 @@ const BannerSlider = () => {
           <S.BannerBox
             onMouseDown={e => mouseDownHandler(e)}
             onMouseUp={e => mouseUpHandler(e)}
-            onMouseEnter={e => mouseEnterHandler(e)}
-            onMouseLeave={e => mouseLeaveHandler(e)}
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
             key={colorList.num}
           >
             <img src={`http://placehold.it/375x140.png/${colorList.color}`} draggable="false" />
