@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AppLayout, TabMenu } from 'components/common';
 import { ContactList } from 'components/contacts';
 import { get } from 'apis/requestAPIs/contacts';
-import { ContactType, QaItems, ContactsAPIType } from 'apis/models/Contacts.type';
+import { ContactType, QaItems } from 'apis/models/Contacts.type';
 import * as S from './contacts.style';
 
 import { SERVICE_CENTER } from 'consts/constants';
@@ -15,7 +15,7 @@ const Contacts = () => {
   useEffect(() => {
     get
       .ContactType()
-      .then(res => setContactType(res))
+      .then(res => setContactType(res.qaTypes))
       .catch(e => console.error(e));
     get
       .QaPurchase()
@@ -26,10 +26,6 @@ const Contacts = () => {
       .then(res => setQaSale(res.qas))
       .catch(e => console.error(e));
   }, []);
-
-  useEffect(() => {
-    console.log(qaSale);
-  }, [contactType, qaPurchase, qaSale]);
 
   return (
     <AppLayout title={SERVICE_CENTER} backPath="/">
@@ -46,7 +42,12 @@ const Contacts = () => {
 
         <S.Question>
           <S.H1>자주 묻는 질문</S.H1>
-          <TabMenu tabType="faq" menuData={[]} />
+          <TabMenu
+            tabType="faq"
+            menuData={contactType}
+            qaType={selectType}
+            setSelectType={setSelectType}
+          />
         </S.Question>
 
         <S.Divider />

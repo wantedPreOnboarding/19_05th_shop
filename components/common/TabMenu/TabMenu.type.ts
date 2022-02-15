@@ -1,5 +1,5 @@
-import { ContactType, ContactsAPIType } from 'apis/models/Contacts.type';
-import React from 'react';
+import { QaItems, ContactsAPIType } from 'apis/models/Contacts.type';
+import React, { SetStateAction } from 'react';
 
 export default interface TabMenuProps {
   tabType: 'category' | 'faq';
@@ -10,7 +10,9 @@ export default interface TabMenuProps {
     discountRate?: number;
     imageUrl?: string;
     key?: string;
-    qaTypes?: ContactsAPIType[];
+    qaTypes?: QaItems[];
   }[];
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  setSelectType: React.Dispatch<React.SetStateAction<number>>;
   selectedMenu?: number | string;
 }
