@@ -1,5 +1,5 @@
 describe('Navigation', () => {
-  it('root -> categories -> brand -> items -> contact', () => {
+  it('contact -> root -> categories -> brand -> items', () => {
     // root
     cy.visit('http://localhost:3000/');
 
@@ -12,18 +12,9 @@ describe('Navigation', () => {
     cy.get('li[class*=Categorystyled__Item]').first().click();
 
     // brands
-    cy.get('li[class*=Categorystyled__Item]').first().click();
+    cy.get('div[class*=Categorystyled__ImgWrapper]').first().click();
 
     // items
-    cy.get('li[class*=ItemThumbnailstyled__ItemThumbnail]').first().click();
-
-    // contacts
-    cy.get('li[class*=Categorystyled__Item]').first().click();
+    cy.get('div[class*=ItemThumbnailstyled__ItemThumbnailWrapper]').first().click();
   });
-  //   // The new url should include "/about"
-  //   cy.url().should('include', '/about');
-
-  //   // The new page should contain an h1 with "About page"
-  //   cy.get('h1').contains('About Page');
-  // });
 });
