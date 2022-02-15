@@ -18,6 +18,9 @@ const nextConfig = {
     conf.resolve.modules.push(__dirname);
     return conf;
   },
+  images: {
+    domains: ['d2lfdrnysfmya6.cloudfront.net'],
+  },
 };
 
 module.exports = nextConfig;

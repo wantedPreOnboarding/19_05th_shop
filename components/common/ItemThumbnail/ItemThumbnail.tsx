@@ -9,7 +9,8 @@ import DescThumbnail from './DescThumbnail/DescThumbnail';
 const ItemThumbnail = ({
   href = '#',
   brand,
-  ItemName,
+  itemName,
+  imageUrl,
   discountRate,
   minSellingPrice,
   originalPrice,
@@ -19,11 +20,11 @@ const ItemThumbnail = ({
     <Link href={href}>
       <a className="presentation-a">
         <S.ItemThumbnailWrapper>
-          <Image width="70" height="70" src="/vercel.svg" />
+          <Image width="70" height="70" src={imageUrl} />
         </S.ItemThumbnailWrapper>
         <DescThumbnail
           brand={brand}
-          ItemName={ItemName}
+          itemName={itemName}
           discountRate={discountRate}
           minSellingPrice={minSellingPrice}
           originalPrice={originalPrice}
