@@ -1,17 +1,17 @@
 import React from 'react';
-import BrandsProps from './Brands.type';
-import Brand from 'components/brands/Brand/Brand';
 import { AppLayout } from 'components/common';
+import Category from 'components/category/Category';
+import CategoriesProps from './Categories.type';
 import { GetServerSideProps } from 'next';
-import { get } from 'apis/requestAPIs/brands';
-import * as S from './Brands.styled';
+import { get } from 'apis/requestAPIs/categories';
+import * as S from './Categories.styled';
 
 
-const Brands = ({ data, name }: BrandsProps) => {
+const Categories = ({ data, name }: CategoriesProps) => {
   return (
     <AppLayout title={name} backPath="/">
       <S.List>
-        {data.map(item => <Brand key={item.id} item={item} />)}
+        {data.map(item => <Category key={item.id} item={item} />)}
       </S.List>
     </AppLayout>
   );
@@ -19,8 +19,7 @@ const Brands = ({ data, name }: BrandsProps) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category1Id } = context.query;
-  const data = typeof category1Id === 'string' ? await get.brands(category1Id) : null;
-
+  const data = typeof category1Id === 'string' ? await get.categories(category1Id) : null;
   return {
     props: {
       data: data?.conCategory1.conCategory2s,
@@ -29,5 +28,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default Brands;
-
+export default Categories;

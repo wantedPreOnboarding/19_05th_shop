@@ -1,4 +1,4 @@
-export interface BrandsAPIType {
+export interface CategoriesAPIType {
   conCategory1: {
     id: number;
     name: string;

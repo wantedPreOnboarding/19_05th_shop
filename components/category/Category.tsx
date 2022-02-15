@@ -1,8 +1,9 @@
 import React from 'react';
-import BrandProps from './Brand.type';
-import * as S from './Brand.styled';
+import CategoryProps from './Category.type';
+import * as S from './Category.styled';
 
-const Brand = ({ item }: BrandProps) => {
+const Category = ({ item }: CategoryProps) => {
+
   return (
     <>
       <S.Item>
@@ -16,4 +17,4 @@ const Brand = ({ item }: BrandProps) => {
 
 };
 
-export default Brand;
+export default Category;
