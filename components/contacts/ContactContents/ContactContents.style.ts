@@ -18,7 +18,7 @@ export const ContentWrapper = styled.div<{ contentOpen: boolean }>`
   border-bottom: 2px solid ${theme.colors.backgroundInsideGray};
 `;
 
-export const Title = styled.button`
+export const Title = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;

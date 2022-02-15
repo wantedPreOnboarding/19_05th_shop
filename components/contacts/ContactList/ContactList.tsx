@@ -10,14 +10,14 @@ const ContactList = ({ selectType, qaPurchase, qaSale }: ContactListProps) => {
         {selectType === 1 && (
           <S.Li>
             {qaPurchase?.map(items => (
-              <ContactContents items={items} />
+              <ContactContents key={items.id} items={items} />
             ))}
           </S.Li>
         )}
         {selectType === 2 && (
           <S.Li>
             {qaSale?.map(items => (
-              <ContactContents items={items} />
+              <ContactContents key={items.id} items={items} />
             ))}
           </S.Li>
         )}
