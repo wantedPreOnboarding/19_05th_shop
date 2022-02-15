@@ -26,7 +26,7 @@ const theme: DefaultTheme = {
     normal: 'normal',
   },
   breakpoints: {
-    mobile: '@media screen and (max-width: 480px)',
+    mobile: '@media screen and (min-width: 480px)',
   },
 };
 
