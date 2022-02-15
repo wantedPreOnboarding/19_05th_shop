@@ -7,7 +7,6 @@ import { get } from 'apis/requestAPIs/categories';
 import * as S from './Brands.styled';
 
 const Brands = ({ name, data }: BrandsProps) => {
-  console.log(data);
   return (
     <AppLayout title={name}>
       <S.CountBox>

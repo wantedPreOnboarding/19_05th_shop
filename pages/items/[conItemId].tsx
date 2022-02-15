@@ -26,8 +26,6 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
     imageUrl,
   } = data;
 
-  console.log(data.options);
-
   const brandCautionList = brandInfo.info?.split('\n').map(indexGenerator);
 
   const itemCautionList = brandInfo.conCategory1.info?.split('\n').map(indexGenerator);
