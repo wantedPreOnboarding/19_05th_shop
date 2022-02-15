@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { SCProps } from 'types/props';
-import { commaNumber } from 'uilts';
+import { commaNumber, dateFormatting } from 'utils';
 import * as S from './OptionSelector.styled';
 import OptionSelectorProps from './OptionSelector.type';
 
@@ -23,7 +23,9 @@ const OptionSelector = ({
                 <S.OptionTitleContentWrapper>
                   <div>
                     <S.OptionTitle>유효기간</S.OptionTitle>
-                    <S.OptionContent>{expireAt} 까지</S.OptionContent>
+                    {typeof expireAt === 'string' && (
+                      <S.OptionContent>{dateFormatting(expireAt)} 까지</S.OptionContent>
+                    )}
                   </div>
                   <div>
                     <S.OptionTitle>할인가</S.OptionTitle>

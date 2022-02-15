@@ -8,6 +8,7 @@ export const SelectedOptionViewer = styled.div`
   padding: 17px;
   background-color: ${props => props.theme.colors.white};
   font-size: ${props => props.theme.fontSize.m};
+  border-top: solid 1px ${({ theme }) => theme.colors.backgroundInsideGray};
 `;
 
 export const InnerWrapper = styled.div`
