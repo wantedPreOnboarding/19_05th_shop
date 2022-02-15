@@ -1,4 +1,4 @@
-import { AppLayout } from 'components';
+import { AppLayout } from 'components/common';
 const Custom404 = () => {
   return (
     <AppLayout>
