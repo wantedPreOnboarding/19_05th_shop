@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import * as S from './DescThumbnail.styled';
 import { SCProps } from 'types/props';
 import ItemThumbnailProps from '../ItemThumbnail.type';
-import { commaNumber } from 'uilts';
+import { commaNumber } from 'utils';
 
 const DescThunbnail = ({
   brand,
