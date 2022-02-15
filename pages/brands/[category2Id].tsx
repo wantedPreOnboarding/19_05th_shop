@@ -1,29 +1,35 @@
 import React from 'react';
-import { AppLayout } from 'components/common';
-import { commaNumber } from 'utils';
+import { AppLayout, ItemThumbnail } from 'components/common';
+import { tensDigit } from 'utils';
 import BrandsProps from './Brands.type';
 import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/categories';
 import * as S from './Brands.styled';
 
 const Brands = ({ name, data }: BrandsProps) => {
+  console.log(data);
   return (
-    <AppLayout title={name} backPath="/">
+    <AppLayout title={name}>
+      <S.CountBox>
+        {tensDigit(data.length)}
+        <span>개의 상품</span>
+      </S.CountBox>
       <S.List>
         {data.map(item => {
-          const saleResult = `${(item.originalPrice - item.minSellingPrice) * 0.01}`;
+          const discountRate = parseInt(`${(item.originalPrice - item.minSellingPrice) * 0.01}`);
+          const newItem = {
+            href: `/items/${item.id}`,
+            id: item.id,
+            itemName: item.name,
+            originalPrice: item.originalPrice,
+            minSellingPrice: item.minSellingPrice,
+            imageUrl: item.imageUrl,
+            discountRate,
+          };
           return (
-            <S.Item key={item.id}>
-              <S.ImgWrapper>
-                <img src={item.imageUrl} alt={item.name} />
-              </S.ImgWrapper>
-              <div>
-                <S.Title>{item.name}</S.Title>
-                <S.Sale>{saleResult.substring(0, 2)}%</S.Sale>
-                <S.Price>{commaNumber(item.originalPrice)}원</S.Price>
-                <S.MinPrice>{commaNumber(item.minSellingPrice)}원</S.MinPrice>
-              </div>
-            </S.Item>
+            <S.Box key={item.id}>
+              <ItemThumbnail {...newItem} />
+            </S.Box>
           );
         })}
       </S.List>
@@ -39,6 +45,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     typeof category2Id === 'string'
       ? data?.conCategory1?.conCategory2s?.find(conCategory2 => +conCategory2.id === +category2Id)
       : null;
+
   return {
     props: {
       name: category2?.name,

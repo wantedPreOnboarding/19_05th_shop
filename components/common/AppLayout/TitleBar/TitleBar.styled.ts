@@ -3,12 +3,12 @@ import { SERVICE_CENTER } from 'consts/constants';
 export const Wrapper = styled.div`
   width: 100%;
   min-height: 50px;
-  padding: 10px 16px 20px 16px;
+  padding: 10px 16px 17px 16px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: ${props => props.title === SERVICE_CENTER && '10px'};
+  padding-top: ${props => props.title === SERVICE_CENTER && '20px'};
   background: ${props => props.theme.colors.white};
 `;
 export const PageTitle = styled.span`
