@@ -5,10 +5,9 @@ import * as S from './Category.styled';
 
 const Category = ({ item }: CategoryProps) => {
   const router = useRouter();
-  console.log(item);
   return (
     <>
-      <S.Item onClick={() => router.push('id')}>
+      <S.Item onClick={() => router.push(`/brands/${item.id}`)}>
         <S.ImgWrapper>
           <img src={item.imageUrl} alt={item.imageUrl} />
           <span>{item.name}</span>
@@ -16,7 +15,6 @@ const Category = ({ item }: CategoryProps) => {
       </S.Item>
     </>
   );
-
 };
 
 export default Category;

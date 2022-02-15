@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppLayout } from 'components/common';
 import CategoriesProps from './Categories.type';
-import Category from 'components/category/Category';
+import Category from 'components/common/Category/Category';
 import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/categories';
 import * as S from './Categories.styled';
