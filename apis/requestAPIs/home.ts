@@ -1,7 +1,7 @@
 import requests from '../core';
 import { MainCategories } from '../models/Home.type';
-import { URL_MAIN_CATEGORIES } from '../consts';
+import { URL } from '../consts';
 
 export const get = {
-  mainCategories: (): Promise<MainCategories> => requests.get(URL_MAIN_CATEGORIES),
+  mainCategories: requests.get<MainCategories>(URL.MAIN_CATEGORIES),
 };
