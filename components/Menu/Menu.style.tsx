@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
-import Arrow from 'public/assets/back.svg';
 
 export const MenuContainer = styled.div`
   width: 100vw;

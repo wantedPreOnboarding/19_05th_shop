@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './Menu.style';
+import Link from 'next/link';
 
 const Menu = () => {
   return (
@@ -39,12 +40,16 @@ const Menu = () => {
       <S.Divider />
       <S.Ol>
         <S.Li>
-          <S.Flex padding>
-            <S.FlexItem>고객센터</S.FlexItem>
-            <S.FlexItem>
-              <S.ArrowSvg />
-            </S.FlexItem>
-          </S.Flex>
+          <Link href="/contacts">
+            <a>
+              <S.Flex padding>
+                <S.FlexItem>고객센터</S.FlexItem>
+                <S.FlexItem>
+                  <S.ArrowSvg />
+                </S.FlexItem>
+              </S.Flex>
+            </a>
+          </Link>
         </S.Li>
         <S.Li>
           <S.Flex padding>
