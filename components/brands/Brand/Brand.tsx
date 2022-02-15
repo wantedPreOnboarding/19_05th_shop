@@ -1,14 +1,17 @@
 import React from 'react';
+import BrandProps from './Brand.type';
 import * as S from './Brand.styled';
 
-const Brand = () => {
+const Brand = ({ item }: BrandProps) => {
   return (
-    <S.List>
-      <S.Item>1</S.Item>
-      <S.Item>2</S.Item>
-      <S.Item>3</S.Item>
-      <S.Item>4</S.Item>
-    </S.List>
+    <>
+      <S.Item>
+        <S.ImgWrapper>
+          <img src={item.imageUrl} alt={item.imageUrl} />
+          <span>{item.name}</span>
+        </S.ImgWrapper>
+      </S.Item>
+    </>
   );
 
 };

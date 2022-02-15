@@ -1,24 +1,26 @@
-export interface BrandsProps {
-  id: number;
-  name: string;
-  discountRate: number;
-  imageUrl: string;
-  conCategory2s: conCategory2sPros[];
+export interface BrandsAPIType {
+  conCategory1: {
+    id: number;
+    name: string;
+    discountRate: number;
+    imageUrl: string;
+    conCategory2s: ConCategory2s[];
+  };
 }
 
-export interface conCategory2sPros {
+export interface ConCategory2s {
   id: number;
   name: string;
   conCategory1Id: number;
   imageUrl: string;
-  conItems: contItemsProps[];
+  conItems: ContItems[];
 }
 
-export interface contItemsProps {
+export interface ContItems {
   id: number;
   name: string;
-  originalPrice: number;
-  minSellingPrice: number;
-  count: number;
+  originalPrice?: number;
+  minSellingPrice?: number;
+  count?: number;
   imageUrl: string;
 }
