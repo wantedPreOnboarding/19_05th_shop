@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppLayout, TabMenu } from 'components/common';
 
 import { SERVICE_CENTER } from 'consts/constants';
 import * as S from './contacts.style';
 import ContactContents from 'components/contacts/ContactContents/ContactContents';
+import ContactList from 'components/contacts/ContactList/ContactList';
 const Contacts = () => {
+  const [qaType, setQaType] = useState<number>(1);
   return (
     <AppLayout title={SERVICE_CENTER} backPath="/">
       <S.Information>
@@ -23,7 +25,8 @@ const Contacts = () => {
       </S.Question>
 
       <S.Divider />
-      <ContactContents />
+
+      <ContactList />
     </AppLayout>
   );
 };
