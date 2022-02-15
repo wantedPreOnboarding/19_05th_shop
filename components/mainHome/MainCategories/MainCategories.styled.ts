@@ -6,10 +6,12 @@ export const Wrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   background: #f1f3f4;
+  padding-top: 17px;
   padding-bottom: 12px;
 `;
 
 export const Box = styled.div`
+  cursor: pointer;
   width: 112px;
   height: 93px;
   display: flex;
