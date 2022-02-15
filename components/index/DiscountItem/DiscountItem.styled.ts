@@ -7,11 +7,14 @@ export const Wrapper = styled.div`
 
 export const Box = styled.div`
   cursor: pointer;
-  width: 375px;
+  width: 100%;
   padding: 17px;
   border-radius: 5px;
   background: ${props => props.theme.colors.white};
   margin-bottom: 1px;
+  ${({ theme }) => theme.breakpoints.mobile} {
+    width: 375px;
+  }
 `;
 
 export const MenuTitle = styled.section`
