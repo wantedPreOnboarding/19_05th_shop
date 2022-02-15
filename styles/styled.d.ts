@@ -10,7 +10,7 @@ declare module 'styled-components' {
       discountGray: '#999';
       borderGray: '#ccc';
       borderRed: '#f75656';
-      backgroundOutsideGray: '#DDDDDD';
+      backgroundOutsideGray: '#F1F3F';
       backgroundInsideGray: '#EEEEEE';
       sideMenuRed: '#ff5757';
     };
