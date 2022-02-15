@@ -3,13 +3,20 @@ import BannerSliderProps from './BannerSlider.type';
 
 export const Wrapper = styled.div`
   height: 141px;
-  width: 375px;
+  width: 100vw;
+
   position: relative;
+  ${({ theme }) => theme.breakpoints.mobile} {
+    width: 375px;
+  }
 `;
 export const BannerBox = styled.div`
   img {
     height: 141px;
-    width: 375px;
+    width: 100vw;
+    ${({ theme }) => theme.breakpoints.mobile} {
+      width: 375px;
+    }
   }
 `;
 

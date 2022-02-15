@@ -28,5 +28,9 @@ declare module 'styled-components' {
       semiStrong: 500;
       normal: 'normal';
     };
+
+    breakpoints: {
+      mobile: '@media screen and (min-width: 480px)';
+    };
   }
 }
