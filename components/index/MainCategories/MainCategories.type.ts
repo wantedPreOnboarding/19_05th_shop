@@ -1,3 +1,5 @@
+import { ConCategory2s } from 'apis/models/Categories.type';
+
 export type CategoriesType = {
-  categories: { discountRate: number; id: number; imageUrl: string; name: string }[];
+  categories: ConCategory2s[];
 };
