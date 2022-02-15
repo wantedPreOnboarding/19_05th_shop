@@ -1,11 +1,13 @@
-import { ItemThumbnail } from 'components/common';
 import * as S from './Items.styled';
 
-import React from 'react';
-import { FullWidthButton } from 'components/common';
+import React, { ReactNode } from 'react';
+import { AppLayout, FullWidthButton } from 'components/common';
 import { TextsSection } from 'components/items';
+import { GetServerSideProps } from 'next';
+import { get } from 'apis/requestAPIs/items';
+import ItemProps from './Items.type';
 
-const Items = () => {
+const Items = ({ data }: ItemProps) => {
   return (
     <S.ItemsLayout>
       <S.PaddedItemThumbnail
@@ -46,6 +48,18 @@ const Items = () => {
       </FullWidthButton>
     </S.ItemsLayout>
   );
+};
+
+Items.getLayout = function getLayout(page: ReactNode) {
+  return <AppLayout>{page}</AppLayout>;
+};
+
+export const getServerSideProps: GetServerSideProps = async context => {
+  const { category1Id } = context.query;
+
+  const data = typeof category1Id === 'string' ? await get.items(category1Id) : null;
+
+  return { props: { data: data } };
 };
 
 export default Items;
