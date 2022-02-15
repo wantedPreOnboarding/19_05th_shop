@@ -10,13 +10,13 @@ export const PaddedItemThumbnail = styled(ItemThumbnail)`
 
 export const ItemsLayout = styled.section`
   padding: 17px;
-
+  margin-bottom: 77px;
   > section {
     padding-top: 18.33px;
   }
 
   .purchase-btn {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
