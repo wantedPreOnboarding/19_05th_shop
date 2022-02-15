@@ -6,15 +6,15 @@ import { commaNumber } from 'uilts';
 
 const DescThunbnail = ({
   brand,
-  ItemName,
+  itemName,
   discountRate,
   minSellingPrice,
   originalPrice,
   className,
-}: SCProps<Omit<ItemThumbnailProps, 'href'>>): ReactElement => (
+}: SCProps<Omit<ItemThumbnailProps, 'href' | 'imageUrl'>>): ReactElement => (
   <S.DescThumbnail className={className}>
     {brand && <div className="brand">{brand}</div>}
-    <div className="item-name">{ItemName}</div>
+    <div className="item-name">{itemName}</div>
     <div>
       <span className="discount-rate">{discountRate}%</span>
       <span className="min-price"> {commaNumber(minSellingPrice)}원</span>

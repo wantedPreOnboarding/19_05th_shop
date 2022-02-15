@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { DiscountCon } from './DiscountItem.type';
 import * as S from './DiscountItem.styled';
-import { commaNumber } from 'uilts';
+import { ItemThumbnail } from 'components/common';
+
 const DiscountItem = ({ disItems }: DiscountCon) => {
   return (
     <>
@@ -12,21 +13,8 @@ const DiscountItem = ({ disItems }: DiscountCon) => {
         {disItems &&
           disItems.map(disItem => {
             return (
-              <S.Box key={disItem.name}>
-                <S.ImageBox>
-                  <img src={disItem.imageUrl} />
-                </S.ImageBox>
-                <S.InfoBox>
-                  <S.BrandName>{disItem.brand}</S.BrandName>
-                  <S.TitleName>{disItem.name}</S.TitleName>
-                  <S.PriceBox>
-                    <S.DiscountPrice> {disItem.discountRate}% </S.DiscountPrice>
-                    <span>{commaNumber(disItem.minSellingPrice)}원</span>
-                    <S.OriginalPrice>
-                      <del> {commaNumber(disItem.originalPrice)}원</del>
-                    </S.OriginalPrice>
-                  </S.PriceBox>
-                </S.InfoBox>
+              <S.Box>
+                <ItemThumbnail {...disItem} />{' '}
               </S.Box>
             );
           })}
