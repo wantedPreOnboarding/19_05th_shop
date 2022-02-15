@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as S from './BannerSlider.styled';
-import { colorArray, BannerMouseEvent } from './BannerSlider.type';
+import { colorArray, BannerMouseEvent, BannerTouchEvent } from './BannerSlider.type';
 
 const BannerSlider = () => {
   const TOTAL_SLIDES = 2;
@@ -11,20 +11,29 @@ const BannerSlider = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const [mouseDownClientX, setMouseDownClientX] = useState<number>(0);
-  const [mouseUpClientX, setMouseUpClientX] = useState<number>(0);
+  const [startClientX, setStartClientX] = useState<number>(0);
+  const [endClientX, setEndClientX] = useState<number>(0);
+
   const [cursorOn, setCursorOn] = useState<boolean>(false);
 
   const bannerHandler = (idx: number) => {
     setCurrentSlide(idx);
   };
 
+  const touchStartHandler = (e: BannerTouchEvent) => {
+    setStartClientX(e.changedTouches[0].clientX);
+  };
+
+  const touchEndtHandler = (e: BannerTouchEvent) => {
+    setEndClientX(e.changedTouches[0].clientX);
+  };
   const mouseDownHandler = (e: BannerMouseEvent) => {
-    setMouseDownClientX(e.clientX);
+    setStartClientX(e.clientX);
   };
   const mouseUpHandler = (e: BannerMouseEvent) => {
-    setMouseUpClientX(e.clientX);
+    setEndClientX(e.clientX);
   };
+
   const mouseEnterHandler = () => {
     setCursorOn(true);
   };
@@ -48,9 +57,9 @@ const BannerSlider = () => {
   };
   useEffect(() => {
     if (cursorOn) {
-      mouseUpClientX - mouseDownClientX < 0 ? prevSlide() : nextSlide();
+      startClientX - endClientX < 0 ? prevSlide() : nextSlide();
     }
-  }, [mouseUpClientX]);
+  }, [endClientX]);
 
   useEffect(() => {
     if (cursorOn) {
@@ -70,6 +79,8 @@ const BannerSlider = () => {
       <S.BannerWrap currentSlide={currentSlide}>
         {colorLists.map(colorList => (
           <S.BannerBox
+            onTouchStart={e => touchStartHandler(e)}
+            onTouchEnd={e => touchEndtHandler(e)}
             onMouseDown={e => mouseDownHandler(e)}
             onMouseUp={e => mouseUpHandler(e)}
             onMouseEnter={mouseEnterHandler}

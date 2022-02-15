@@ -10,3 +10,4 @@ export interface colorArray {
 }
 
 export type BannerMouseEvent = React.MouseEvent<HTMLElement, MouseEvent>;
+export type BannerTouchEvent = React.TouchEvent<HTMLDivElement>;
