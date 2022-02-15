@@ -21,7 +21,6 @@ export const MenuTitle = styled.section`
   font-size: ${props => props.theme.fontSize.xl};
   font-weight: ${props => props.theme.fontWeight.strong};
   padding: 17px;
-  margin-bottom: 14px;
   line-height: 19px;
   span {
     font-weight: 500;

@@ -15,5 +15,5 @@ export const ItemThumbnailWrapper = styled.div`
   justify-content: center;
   min-width: 70px;
   min-height: 70px;
-  background: ${props => props.theme.colors.white};
+  background: ${props => props.theme.colors.backgroundInsideGray};
 `;

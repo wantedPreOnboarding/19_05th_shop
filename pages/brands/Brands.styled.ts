@@ -9,7 +9,7 @@ export const CountBox = styled.div`
   font-size: ${props => props.theme.fontSize.m};
   font-weight: ${props => props.theme.fontWeight.strong};
   span {
-    opacity: 80%;
+    opacity: 40%;
   }
 `;
 
