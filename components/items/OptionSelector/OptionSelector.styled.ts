@@ -19,6 +19,7 @@ export const OptionSelector = styled.div`
 export const Select = styled.div`
   height: 183px;
   overflow-y: auto;
+  background-color: ${props => props.theme.colors.white};
   &::-webkit-scrollbar {
     display: none;
   }
