@@ -7,7 +7,7 @@ const MainCategories = (categories: CategoriesType) => {
   return (
     <S.Wrapper>
       {categories
-        ? categories.categories.map(category => <Category item={category} key={category.id} />)
+        ? categories.categories.map(category => <Category page='categories' item={category} key={category.id} />)
         : ''}
     </S.Wrapper>
   );
