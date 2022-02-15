@@ -13,7 +13,7 @@ const DiscountItem = ({ disItems }: DiscountCon) => {
         {disItems &&
           disItems.map(disItem => {
             return (
-              <S.Box>
+              <S.Box key={disItem.itemName}>
                 <ItemThumbnail {...disItem} />{' '}
               </S.Box>
             );
