@@ -8,8 +8,8 @@ import * as S from './contacts.style';
 import { SERVICE_CENTER } from 'consts/constants';
 const Contacts = () => {
   const [contactType, setContactType] = useState<ContactType>();
-  const [qaPurchase, setQaPurchase] = useState<QaItems>([]);
-  const [qaSale, setQaSale] = useState<QaItems>([]);
+  const [qaPurchase, setQaPurchase] = useState<QaItems[]>([]);
+  const [qaSale, setQaSale] = useState<QaItems[]>([]);
   const [selectType, setSelectType] = useState<number>(1);
 
   useEffect(() => {
