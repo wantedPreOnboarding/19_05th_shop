@@ -31,7 +31,7 @@ const AppLayout = ({ title, backPath, children }: AppLayoutProps) => {
       </Head>
       <S.Layout>
         {title && title === SERVICE_CENTER ? '' : <StatusBar />}
-        <TitleBar title={title} backPath={backPath} sideMenuHandler={sideMenuHandler} />
+        <TitleBar title={title} sideMenuHandler={sideMenuHandler} />
         <ChildrenContent>{children}</ChildrenContent>
         <MyPage sideMenuHandle={sideMenuHandler} openSideMenu={openSideMenu} />
       </S.Layout>

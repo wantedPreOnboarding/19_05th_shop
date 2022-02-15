@@ -8,7 +8,7 @@ import * as S from './Brands.styled';
 
 const Brands = ({ name, data }: BrandsProps) => {
   return (
-    <AppLayout title={name} backPath="/">
+    <AppLayout title={name}>
       <S.List>
         {data.map(item => {
           const saleResult = `${(item.originalPrice - item.minSellingPrice) * 0.01}`;
