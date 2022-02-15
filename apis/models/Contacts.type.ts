@@ -3,13 +3,13 @@ export interface ContactsAPIType {
   qaTypes: ContactType[];
 }
 
-export interface QaItems {
+export interface ContactType {
   id: number;
   name: string;
   key: string;
 }
 
-export interface ContactType {
+export interface QaItems {
   id: number;
   question: string;
   answer: string;

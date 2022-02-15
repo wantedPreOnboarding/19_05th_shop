@@ -1,3 +1,4 @@
+import { ContactType, ContactsAPIType } from 'apis/models/Contacts.type';
 import React from 'react';
 
 export default interface TabMenuProps {
@@ -9,6 +10,7 @@ export default interface TabMenuProps {
     discountRate?: number;
     imageUrl?: string;
     key?: string;
+    qaTypes?: ContactsAPIType[];
   }[];
   selectedMenu?: number | string;
 }

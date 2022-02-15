@@ -20,6 +20,7 @@ export const ContentWrapper = styled.div<{ contentOpen: boolean }>`
 
 export const Title = styled.button`
   display: flex;
+  width: 100%;
   justify-content: space-between;
   text-align: start;
   color: ${theme.colors.black};
