@@ -16,4 +16,5 @@ export const InnerWrapper = styled.div`
   padding: 8px 14px 6px 17px;
   background-color: ${props => props.theme.colors.ligthGray};
   border-radius: 5px;
+  cursor: pointer;
 `;
