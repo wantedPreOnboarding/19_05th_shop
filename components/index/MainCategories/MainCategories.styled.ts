@@ -5,6 +5,5 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-top: 16px;
-  padding-bottom: 12px;
+  padding: 16px 17px 12px 17px;
 `;

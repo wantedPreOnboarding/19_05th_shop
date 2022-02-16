@@ -44,7 +44,7 @@ const MyPage = ({ sideMenuHandle, openSideMenu }: MyPageProps) => {
           <Link href="/contacts">
             <a>
               <S.Flex padding>
-                <S.FlexItem>고객센터</S.FlexItem>
+                <S.FlexItem style={{ color: 'black' }}>고객센터</S.FlexItem>
                 <S.FlexItem>
                   <S.ArrowSvg />
                 </S.FlexItem>

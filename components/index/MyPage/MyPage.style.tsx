@@ -9,6 +9,7 @@ export const MenuContainer = styled.div<{ openSideMenu: boolean }>`
   transition: transform 0.5s ease-in-out;
   z-index: 66;
   background-color: ${({ theme }) => theme.colors.white};
+  color: gray;
 `;
 
 export const Nav = styled.nav`
