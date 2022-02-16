@@ -8,7 +8,7 @@ import MyPage from 'components/index/MyPage/MyPage';
 
 import { SERVICE_CENTER } from 'consts/constants';
 import Head from 'next/head';
-const AppLayout = ({ title, backPath, children }: AppLayoutProps) => {
+const AppLayout = ({ title, children }: AppLayoutProps) => {
   const [openSideMenu, setOpenSideMenu] = useState<boolean>(false);
   const sideMenuHandler = (): void => {
     setOpenSideMenu(!openSideMenu);

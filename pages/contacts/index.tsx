@@ -28,7 +28,7 @@ const Contacts = () => {
   }, []);
 
   return (
-    <AppLayout title={SERVICE_CENTER} backPath="/">
+    <AppLayout title={SERVICE_CENTER}>
       <S.Container>
         <S.Information>
           <S.Section>

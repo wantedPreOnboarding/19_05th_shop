@@ -18,7 +18,7 @@ const Categories = ({ data, name }: CategoriesProps) => {
   }, []);
 
   return (
-    <AppLayout title={name} backPath="/">
+    <AppLayout title={name}>
       <TabMenu menuData={tab} tabType="category" />
       <S.List>
         {data.map(item => (

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { SCProps } from 'types/props';
 import FullWidthButtonProps from './FullWidthButton.type';
 import * as S from './FullWidthButton.styled';

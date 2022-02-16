@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from './TitleBar.styled';
 import { TitleBarProps } from './TitleBar.type';
 import Link from 'next/link';

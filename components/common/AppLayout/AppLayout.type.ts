@@ -1,7 +1,8 @@
+import { ReactNode } from 'react';
+
 export type AppLayoutProps = {
   title?: string;
-  backPath?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 export type PathNameProps = {
