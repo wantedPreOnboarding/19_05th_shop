@@ -1,11 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/link-passhref */
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import CategoryProps from './Category.type';
 import * as S from './Category.styled';
 
 const Category = ({ item, page }: CategoryProps) => {
-  const router = useRouter();
   return (
     <S.Item>
       <Link

@@ -1,10 +1,10 @@
 import React from 'react';
 import { AppLayout, ItemThumbnail } from 'components/common';
 import { tensDigit } from 'utils';
-import BrandsProps from './BrandList.type';
+import BrandsProps from './Brand.type';
 import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/categories';
-import * as S from './Brands.styled';
+import * as S from './Brand.styled';
 
 const Brands = ({ name, data }: BrandsProps) => {
   return (
@@ -43,13 +43,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const category2 =
     typeof category2Id === 'string'
       ? data?.conCategory1?.conCategory2s?.find(conCategory2 => +conCategory2.id === +category2Id)
-      : null;
+      : undefined;
 
   return {
-    props: {
-      name: category2?.name,
-      data: category2?.conItems,
-    },
+    props: category2
+      ? {
+          name: category2?.name,
+          data: category2?.conItems,
+        }
+      : {},
   };
 };
 export default Brands;

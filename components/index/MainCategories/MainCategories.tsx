@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { CategoriesType } from './MainCategories.type';
 import * as S from './MainCategories.styled';
 import Category from 'components/common/Category/Category';
