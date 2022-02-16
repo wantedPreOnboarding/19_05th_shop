@@ -1,4 +1,4 @@
-# ShoppingMall
+# 😊ShoppingMall
 
 1. 💁 프로젝트 소개
 2. 👋🏻 팀원 소개
