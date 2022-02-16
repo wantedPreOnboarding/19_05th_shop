@@ -12,9 +12,9 @@ describe('Navigation', () => {
     cy.get('li[class*=Categorystyled__Item]').first().click();
 
     // brands
-    cy.get('div[class*=Categorystyled__ImgWrapper]').first().click();
+    cy.get('li[class*=Categorystyled__Item]').first().click();
 
-    // items
-    cy.get('div[class*=ItemThumbnailstyled__ItemThumbnailWrapper]').first().click();
+    // contacts
+    cy.get('li[class*=Categorystyled__Item]').first().click();
   });
 });

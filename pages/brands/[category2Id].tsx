@@ -1,10 +1,10 @@
 import React from 'react';
 import { AppLayout, ItemThumbnail } from 'components/common';
 import { tensDigit } from 'utils';
-import BrandsProps from './Brand.type';
+import BrandsProps from 'components/brands/Brand.type';
 import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/categories';
-import * as S from './Brand.styled';
+import * as S from 'components/brands/Brand.styled';
 
 const Brands = ({ name, data }: BrandsProps) => {
   return (

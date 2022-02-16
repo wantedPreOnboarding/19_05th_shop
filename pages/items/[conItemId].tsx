@@ -1,8 +1,7 @@
-import * as S from './Items.styled';
-
 import React, { ReactNode, useState } from 'react';
 import { AppLayout } from 'components/common';
 import { TextsSection, OptionSelector, SelectedOptionViewer } from 'components/items';
+import * as S from 'components/items/Items.styled';
 import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/items';
 import ItemAPIType from 'apis/models/Items.type';
