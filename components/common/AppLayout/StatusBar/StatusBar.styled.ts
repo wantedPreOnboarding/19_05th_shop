@@ -12,7 +12,7 @@ export const FullBar = styled.div`
 export const SettingIcons = styled.div`
   display: flex;
   align-items: center;
-  font-size: ${props => props.theme.fontSize.xs};
+  font-size: ${props => props.theme.fontSize.s};
   font-weight: ${props => props.theme.fontWeight.strong};
   span {
     margin-left: 8px;

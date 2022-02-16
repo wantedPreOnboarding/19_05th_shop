@@ -10,7 +10,7 @@ export const PaddedItemThumbnail = styled(ItemThumbnail)`
 `;
 
 export const ItemsLayout = styled.section`
-  padding: 17px;
+  padding: 17px 29px 17px 17px;
   margin-bottom: 77px;
   border: 1px solid ${({ theme }) => theme.colors.backgroundInsideGray};
   background-color: ${({ theme }) => theme.colors.white};

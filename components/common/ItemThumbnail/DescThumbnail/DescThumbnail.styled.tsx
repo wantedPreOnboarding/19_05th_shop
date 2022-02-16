@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import * as S from './DescThumbnail.styled';
 
 export const DescThumbnail = styled.div`
   padding: 0px 17px;

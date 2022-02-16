@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AppLayoutProps } from './AppLayout.type';
 import * as S from './AppLayout.styled';
 import StatusBar from './StatusBar/StatusBar';
@@ -8,7 +8,7 @@ import MyPage from 'components/index/MyPage/MyPage';
 
 import { SERVICE_CENTER } from 'consts/constants';
 import Head from 'next/head';
-const AppLayout = ({ title, backPath, children }: AppLayoutProps) => {
+const AppLayout = ({ title, children }: AppLayoutProps) => {
   const [openSideMenu, setOpenSideMenu] = useState<boolean>(false);
   const sideMenuHandler = (): void => {
     setOpenSideMenu(!openSideMenu);
@@ -31,7 +31,7 @@ const AppLayout = ({ title, backPath, children }: AppLayoutProps) => {
       </Head>
       <S.Layout>
         {title && title === SERVICE_CENTER ? '' : <StatusBar />}
-        <TitleBar title={title} backPath={backPath} sideMenuHandler={sideMenuHandler} />
+        <TitleBar title={title} sideMenuHandler={sideMenuHandler} />
         <ChildrenContent>{children}</ChildrenContent>
         <MyPage sideMenuHandle={sideMenuHandler} openSideMenu={openSideMenu} />
       </S.Layout>

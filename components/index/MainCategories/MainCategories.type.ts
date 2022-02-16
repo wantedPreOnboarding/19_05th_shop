@@ -1,5 +1,5 @@
-import { ConCategory2s } from 'apis/models/Categories.type';
+import { MainCategory } from 'apis/models/Home.type';
 
 export type CategoriesType = {
-  categories: ConCategory2s[];
+  categories: MainCategory[];
 };

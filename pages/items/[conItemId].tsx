@@ -26,18 +26,16 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
     imageUrl,
   } = data;
 
-  console.log(data.options);
+  const brandCautionList = brandInfo.info?.split('\n').map(indexGenerator);
 
-  const brandCautionList = brandInfo.info.split('\n').map(indexGenerator);
-
-  const itemCautionList = brandInfo.conCategory1.info.split('\n').map(indexGenerator);
+  const itemCautionList = brandInfo.conCategory1.info?.split('\n').map(indexGenerator);
 
   const refundRuleList = warning
-    .slice(warning.indexOf('[환불규정]'))
-    .split('\n')
-    .map(caution => caution.replace(' -', '·'))
-    .slice(1)
-    .map(indexGenerator);
+    ?.slice(warning.indexOf('[환불규정]'))
+    ?.split('\n')
+    ?.map(caution => caution.replace(' -', '·'))
+    ?.slice(1)
+    ?.map(indexGenerator);
 
   const optionsWithDiscountRate = options.map((option, index) => ({
     ...option,

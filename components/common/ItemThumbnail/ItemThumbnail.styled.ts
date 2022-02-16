@@ -13,4 +13,7 @@ export const ItemThumbnailWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 70px;
+  min-height: 70px;
+  background: ${props => props.theme.colors.backgroundInsideGray};
 `;

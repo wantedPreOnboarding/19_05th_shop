@@ -1,10 +1,35 @@
 import styled from 'styled-components';
 
+export const CountBox = styled.div`
+  width: 100%;
+  height: 40px;
+  margin-top: 1px;
+  background: ${({ theme }) => theme.colors.white};
+  padding: 12px 17px;
+  font-size: ${props => props.theme.fontSize.m};
+  font-weight: ${props => props.theme.fontWeight.strong};
+  span {
+    opacity: 40%;
+  }
+`;
+
+export const Box = styled.div`
+  cursor: pointer;
+  width: 100%;
+  padding: 17px;
+  border-radius: 5px;
+  background: ${props => props.theme.colors.white};
+  margin-bottom: 1px;
+  ${({ theme }) => theme.breakpoints.mobile} {
+    width: 375px;
+  }
+`;
+
 export const List = styled.ul`
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;
-  padding: 15px;
+  padding-top: 9px;
   background: #f1f3f4;
 `;
 

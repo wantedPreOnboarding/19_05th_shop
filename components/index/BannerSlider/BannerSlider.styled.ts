@@ -31,7 +31,7 @@ export const NavBtns = styled.div`
   height: 10px;
   position: absolute;
   bottom: 15px;
-  right: 35px;
+  right: 25px;
   display: flex;
   justify-content: space-between;
 `;

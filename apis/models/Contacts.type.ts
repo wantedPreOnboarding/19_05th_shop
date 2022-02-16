@@ -1,6 +1,9 @@
 export interface ContactsAPIType {
-  qas: QaItems[];
   qaTypes: ContactType[];
+}
+
+export interface QaItemsAPIType {
+  qas: QaItems[];
 }
 
 export interface ContactType {
