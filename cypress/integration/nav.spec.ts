@@ -1,3 +1,5 @@
+/// <reference types="cypress"/>
+
 describe('Navigation', () => {
   it('유효한 모든 페이지를 접근합니다.', () => {
     // root -> contacts -> categories -> brands -> items

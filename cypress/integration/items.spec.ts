@@ -1,3 +1,5 @@
+/// <reference types="cypress"/>
+
 describe('상품 구매 페이지 테스트', () => {
   it('마운팅 및 클릭 이벤트 테스트', () => {
     // root

@@ -1,3 +1,5 @@
+/// <reference types="cypress"/>
+
 describe('index', () => {
   it('index 페이지 마운팅 테스트', () => {
     cy.visit('http://localhost:3000/');

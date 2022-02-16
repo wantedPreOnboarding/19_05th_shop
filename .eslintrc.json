@@ -4,6 +4,7 @@
     "es2021": true
   },
   "extends": [
+    "plugin:cypress/recommended",
     "plugin:@next/next/recommended",
     "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
@@ -30,5 +31,5 @@
     ],
     "import/prefer-default-export": "off"
   },
-  "plugins": ["react"]
+  "plugins": ["react", "cypress"]
 }
