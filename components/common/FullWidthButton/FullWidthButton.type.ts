@@ -1,3 +1,4 @@
+import React from 'react';
 import { DefaultTheme } from 'styled-components';
 
 export default interface FullWidthButtonProps {

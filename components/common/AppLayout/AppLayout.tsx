@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AppLayoutProps } from './AppLayout.type';
 import * as S from './AppLayout.styled';
 import StatusBar from './StatusBar/StatusBar';
