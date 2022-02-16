@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import { AppLayout } from 'components/common';
 import { YOUCON_MYCON } from 'consts/constants';
 import { get } from 'apis/requestAPIs/home';

@@ -11,9 +11,10 @@ export interface CategoriesAPIType {
 export interface ConCategory2s {
   id: number;
   name: string;
-  conCategory1Id: number;
+  discountRate?: number;
+  conCategory1Id?: number;
   imageUrl: string;
-  conItems: ContItems[];
+  conItems?: ContItems[];
 }
 
 export interface ContItems {
