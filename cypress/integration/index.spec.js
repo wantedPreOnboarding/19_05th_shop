@@ -1,5 +1,5 @@
-describe('Navigation', () => {
-  it('should navigate to the about page', () => {
+describe('index', () => {
+  it('index 페이지 마운팅 테스트', () => {
     cy.visit('http://localhost:3000/');
 
     cy.get('h1').contains('니콘내콘');
