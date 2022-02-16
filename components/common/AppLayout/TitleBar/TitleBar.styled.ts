@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   align-items: center;
   background: ${props => props.theme.colors.white};
 `;
-export const PageTitle = styled.span`
+export const PageTitle = styled.h1`
   font-weight: ${props => props.theme.fontWeight.strong};
   font-size: ${props => props.theme.fontSize.l};
   display: flex;
