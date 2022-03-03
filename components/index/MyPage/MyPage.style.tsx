@@ -6,7 +6,7 @@ export const MenuContainer = styled.div<{ openSideMenu: boolean }>`
   width: 100%;
   height: 100%;
   transform: ${props => (props.openSideMenu ? 'translateX(0px)' : 'translateX(-100%)')};
-  transition: ${props => (props.openSideMenu ? 'transform 0.5s ease-in-out' : 'transform 0.5s ease-in-out')};
+  transition: transform 0.5s ease-in-out;
   z-index: 66;
   background-color: ${({ theme }) => theme.colors.white};
   color: gray;
