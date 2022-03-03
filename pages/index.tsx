@@ -1,6 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import { AppLayout } from 'components/common';
+import { AppLayout, Spinner } from 'components/common';
 import { YOUCON_MYCON } from 'consts/constants';
 import { get } from 'apis/requestAPIs/home';
 import { MainCategories, DiscountItem, BannerSlider } from 'components/index';
@@ -11,13 +11,6 @@ const Home: NextPage = () => {
   const discountItems = useSWR('discountItems', () => get.discountItems());
 
   const categories = mainCategorie.data && mainCategorie.data.conCategory1s;
-  if (!mainCategorie.data) {
-    return <div>loadding</div>;
-  }
-  if (mainCategorie.error) {
-    console.error(mainCategorie.error);
-  }
-
   const disItems =
     discountItems.data &&
     discountItems.data.conItems.map(conItem => ({
@@ -30,19 +23,24 @@ const Home: NextPage = () => {
       minSellingPrice: conItem.minSellingPrice,
     }));
 
-  if (!disItems) {
-    return <div>loadding</div>;
+  if (mainCategorie.error) {
+    console.error(mainCategorie.error);
   }
-
   if (discountItems.error) {
     console.error(discountItems.error);
   }
 
   return (
     <AppLayout title={YOUCON_MYCON}>
-      <BannerSlider />
-      {categories && <MainCategories categories={categories} />}
-      {disItems && <DiscountItem disItems={disItems} />}
+      {mainCategorie && disItems ? (
+        <>
+          <BannerSlider />
+          {categories && <MainCategories categories={categories} />}
+          {disItems && <DiscountItem disItems={disItems} />}
+        </>
+      ) : (
+        <Spinner />
+      )}
     </AppLayout>
   );
 };
