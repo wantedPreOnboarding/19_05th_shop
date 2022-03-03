@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppLayout, ItemThumbnail } from 'components/common';
+import { AppLayout, ItemThumbnail, Spinner } from 'components/common';
 import { tensDigit } from 'utils';
 import { get } from 'apis/requestAPIs/categories';
 import * as S from 'components/brands/Brand.styled';
@@ -51,7 +51,7 @@ const Brands = () => {
       ) : error ? (
         <Error statusCode={404} />
       ) : (
-        <div>loading</div>
+        <Spinner />
       )}
     </AppLayout>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppLayout, TabMenu, Category } from 'components/common';
+import { AppLayout, TabMenu, Category, Spinner } from 'components/common';
 import * as S from 'components/categories/Categories.styled';
 import { useRouter } from 'next/router';
 import { get } from 'apis/requestAPIs/categories';
@@ -56,7 +56,7 @@ const Categories = ({ tabInfo }: CategoriesProps) => {
       ) : error ? (
         <Error statusCode={404} />
       ) : (
-        <div>loading</div>
+        <Spinner />
       )}
     </AppLayout>
   );

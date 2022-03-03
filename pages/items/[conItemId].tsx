@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { AppLayout } from 'components/common';
+import { AppLayout, Spinner } from 'components/common';
 import { OptionViewer, TextsSection } from 'components/items';
 import * as S from 'components/items/Items.styled';
 import { get } from 'apis/requestAPIs/items';
@@ -15,7 +15,7 @@ const Items = () => {
   const { data } = useSWR(conItemId, (conItemId: string) => get.items(conItemId));
 
   if (!data) {
-    return <div>loadding</div>;
+    return <Spinner />;
   }
 
   const {
