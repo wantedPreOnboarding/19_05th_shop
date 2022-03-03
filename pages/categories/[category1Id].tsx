@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { AppLayout, TabMenu } from 'components/common';
-import CategoriesProps from './Categories.type';
-import Category from 'components/common/Category/Category';
+import { AppLayout, TabMenu, Category } from 'components/common';
+import CategoriesProps from 'components/categories/Categories.type';
+import * as S from 'components/categories/Categories.styled';
 import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/categories';
-import * as S from './Categories.styled';
 import { MainCategory } from 'apis/models/Home.type';
 
 const Categories = ({ data, name }: CategoriesProps) => {

@@ -19,7 +19,7 @@ const nextConfig = {
     return conf;
   },
   images: {
-    domains: ['d2lfdrnysfmya6.cloudfront.net'],
+    domains: ['d2lfdrnysfmya6.cloudfront.net', 'placehold.it'],
   },
 };
 

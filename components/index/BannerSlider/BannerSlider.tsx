@@ -86,8 +86,9 @@ const BannerSlider = () => {
             onMouseEnter={mouseEnterHandler}
             onMouseLeave={mouseLeaveHandler}
             key={colorList.num}
+            color={colorList.color}
           >
-            <img src={`http://placehold.it/375x140.png/${colorList.color}`} draggable="false" />
+            <div />
           </S.BannerBox>
         ))}
       </S.BannerWrap>
