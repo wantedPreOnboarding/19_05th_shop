@@ -1,52 +1,89 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { AppLayout, TabMenu, Category } from 'components/common';
-import CategoriesProps from 'components/categories/Categories.type';
 import * as S from 'components/categories/Categories.styled';
-import { GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
 import { get } from 'apis/requestAPIs/categories';
-import { MainCategory } from 'apis/models/Home.type';
+import useSWR from 'swr';
+import CategoriesProps from 'components/categories/Categories.type';
+import { GetStaticProps } from 'next';
+import Error from 'pages/_error';
 import { ItemThumbnail } from 'components/common';
+import { ContItems } from 'apis/models/Categories.type';
 
-const Categories = ({ data, name }: CategoriesProps) => {
-  const [tab, setTab] = useState<MainCategory[]>([]);
+const Categories = ({ tabInfo }: CategoriesProps) => {
+  const router = useRouter();
+  const { category1Id } = router.query;
 
-  useEffect(() => {
-    get
-      .mainCategories()
-      .then(res => setTab(res.conCategory1s))
-      .catch(e => console.error(e));
-  }, []);
+  const { data: categoryInfo, error } = useSWR(category1Id, (category1Id: string) =>
+    get.categories(category1Id),
+  );
+
+  const getDisCountItem = (name: string, innerItem: ContItems) => ({
+    brand: name,
+    href: `/items/${innerItem.id}`,
+    imageUrl: innerItem.imageUrl,
+    itemName: innerItem.name,
+    discountRate: innerItem.discountRate,
+    minSellingPrice: innerItem?.minSellingPrice,
+    originalPrice: innerItem.originalPrice,
+  });
 
   return (
-    <AppLayout title={name}>
-    <TabMenu menuData={tab} tabType="category" />
-     {name==="땡철이"?data.map(item=>{
-      return(
-      item&&item.conItems?.map(innerItem=>{
-      const discountItem={brand:item.name, href:`/items/${innerItem.id}`,imageUrl:innerItem.imageUrl,itemName:innerItem.name,discountRate:innerItem.discountRate,minSellingPrice:innerItem?.minSellingPrice,originalPrice:innerItem.originalPrice}
-      return ( 
-          <S.Box key={discountItem.itemName}>
-            <ItemThumbnail {...discountItem} />
-          </S.Box>);
-      }))})
-      :
-      <S.List>
-        {data.map(item => (
-          <Category page="brands" key={item.id} item={item} />
-        ))}</S.List>}
+    <AppLayout title={categoryInfo?.conCategory1.name}>
+      {categoryInfo ? (
+        <>
+          <TabMenu menuData={tabInfo} tabType="category" />
+          {categoryInfo.conCategory1.name === '땡철이' ? (
+            // categoryInfo?.conCategory1.conCategory2s 브랜드 목록
+            categoryInfo.conCategory1.conCategory2s.map(brand =>
+              brand.conItems?.map(conItem => {
+                const discountItem = getDisCountItem(brand.name, conItem);
+                return (
+                  <S.Box key={discountItem.itemName}>
+                    <ItemThumbnail {...discountItem} />
+                  </S.Box>
+                );
+              }),
+            )
+          ) : (
+            <S.List>
+              {categoryInfo.conCategory1.conCategory2s.map(item => (
+                <Category page="brands" key={item.id} item={item} />
+              ))}
+            </S.List>
+          )}
+        </>
+      ) : error ? (
+        <Error statusCode={404} />
+      ) : (
+        <div>loading</div>
+      )}
     </AppLayout>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async context => {
-  const { category1Id } = context.query;
-  const data = typeof category1Id === 'string' ? await get.categories(category1Id) : null;
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await get.mainCategories();
+
   return {
     props: {
-      tab: data?.conCategory1,
-      data: data?.conCategory1.conCategory2s,
-      name: data?.conCategory1.name,
+      tabInfo: data.conCategory1s,
     },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const data = await get.mainCategories();
+
+  const params = data.conCategory1s.map(item => ({
+    params: {
+      category1Id: item + '',
+    },
+  }));
+
+  return {
+    paths: params,
+    fallback: true,
   };
 };
 
