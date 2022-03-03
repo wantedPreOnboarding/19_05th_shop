@@ -2,30 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { AppLayout, TabMenu } from 'components/common';
 import { ContactList } from 'components/contacts';
 import { get } from 'apis/requestAPIs/contacts';
-import { ContactType, QaItems } from 'apis/models/Contacts.type';
+import { ContactsAPIType } from './index.type';
 import * as S from 'components/contacts/Contacts.style';
 
 import { SERVICE_CENTER } from 'consts/constants';
-const Contacts = () => {
-  const [contactType, setContactType] = useState<ContactType[]>([]);
-  const [qaPurchase, setQaPurchase] = useState<QaItems[]>([]);
-  const [qaSale, setQaSale] = useState<QaItems[]>([]);
+const Contacts = ({ contactType, qaPurchase, qaSale }: ContactsAPIType) => {
   const [selectType, setSelectType] = useState<number>(1);
-
-  useEffect(() => {
-    get
-      .ContactType()
-      .then(res => setContactType(res.qaTypes))
-      .catch(e => console.error(e));
-    get
-      .QaPurchase()
-      .then(res => setQaPurchase(res.qas))
-      .catch(e => console.error(e));
-    get
-      .QaSale()
-      .then(res => setQaSale(res.qas))
-      .catch(e => console.error(e));
-  }, []);
 
   return (
     <AppLayout title={SERVICE_CENTER}>
@@ -57,4 +39,19 @@ const Contacts = () => {
     </AppLayout>
   );
 };
+
+export async function getStaticProps() {
+  const contactType = await get.ContactType();
+  const qaPurchase = await get.QaPurchase();
+  const qaSale = await get.QaSale();
+
+  return {
+    props: {
+      contactType: contactType.qaTypes,
+      qaPurchase: qaPurchase.qas,
+      qaSale: qaSale.qas,
+    },
+  };
+}
+
 export default Contacts;
