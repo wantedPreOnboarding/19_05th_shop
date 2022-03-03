@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { AppLayout, TabMenu } from 'components/common';
 import { ContactList } from 'components/contacts';
 import { get } from 'apis/requestAPIs/contacts';
