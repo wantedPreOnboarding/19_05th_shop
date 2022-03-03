@@ -1,43 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { AppLayout, TabMenu } from 'components/common';
-import CategoriesProps from './Categories.type';
-import Category from 'components/common/Category/Category';
-import { GetServerSideProps } from 'next';
+import React from 'react';
+import { AppLayout, TabMenu, Category } from 'components/common';
+import * as S from 'components/categories/Categories.styled';
+import { useRouter } from 'next/router';
 import { get } from 'apis/requestAPIs/categories';
-import * as S from './Categories.styled';
-import { MainCategory } from 'apis/models/Home.type';
+import useSWR from 'swr';
+import CategoriesProps from 'components/categories/Categories.type';
+import { GetStaticProps } from 'next';
+import Error from 'pages/_error';
 
-const Categories = ({ data, name }: CategoriesProps) => {
-  const [tab, setTab] = useState<MainCategory[]>([]);
+const Categories = ({ tabInfo }: CategoriesProps) => {
+  const router = useRouter();
+  const { category1Id } = router.query;
 
-  useEffect(() => {
-    get
-      .mainCategories()
-      .then(res => setTab(res.conCategory1s))
-      .catch(e => console.error(e));
-  }, []);
+  const { data: categoryInfo, error } = useSWR(category1Id, (category1Id: string) =>
+    get.categories(category1Id),
+  );
 
   return (
-    <AppLayout title={name}>
-      <TabMenu menuData={tab} tabType="category" />
-      <S.List>
-        {data.map(item => (
-          <Category page="brands" key={item.id} item={item} />
-        ))}
-      </S.List>
+    <AppLayout title={categoryInfo?.conCategory1.name}>
+      {categoryInfo ? (
+        <>
+          <TabMenu menuData={tabInfo} tabType="category" />
+          <S.List>
+            {/* categoryInfo?.conCategory1.conCategory2s 브랜드 목록 */}
+            {categoryInfo?.conCategory1.conCategory2s.map(item => (
+              <Category page="brands" key={item.id} item={item} />
+            ))}
+          </S.List>
+        </>
+      ) : error ? (
+        <Error statusCode={404} />
+      ) : (
+        <div>loading</div>
+      )}
     </AppLayout>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async context => {
-  const { category1Id } = context.query;
-  const data = typeof category1Id === 'string' ? await get.categories(category1Id) : null;
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await get.mainCategories();
+
   return {
     props: {
-      tab: data?.conCategory1,
-      data: data?.conCategory1.conCategory2s,
-      name: data?.conCategory1.name,
+      tabInfo: data.conCategory1s,
     },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const data = await get.mainCategories();
+
+  const params = data.conCategory1s.map(item => ({
+    params: {
+      category1Id: item + '',
+    },
+  }));
+
+  return {
+    paths: params,
+    fallback: true,
   };
 };
 

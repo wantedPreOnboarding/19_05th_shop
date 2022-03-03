@@ -1,5 +1,9 @@
+/// <reference types="cypress"/>
+
 describe('Navigation', () => {
-  it('contact -> root -> categories -> brand -> items', () => {
+  it('유효한 모든 페이지를 접근합니다.', () => {
+    // root -> contacts -> categories -> brands -> items
+
     // root
     cy.visit('http://localhost:3000/');
 
@@ -12,9 +16,9 @@ describe('Navigation', () => {
     cy.get('li[class*=Categorystyled__Item]').first().click();
 
     // brands
-    cy.get('div[class*=Categorystyled__ImgWrapper]').first().click();
+    cy.get('li[class*=Categorystyled__Item]').first().click();
 
     // items
-    cy.get('div[class*=ItemThumbnailstyled__ItemThumbnailWrapper]').first().click();
+    cy.get('li[class*=Categorystyled__Item]').first().click();
   });
 });

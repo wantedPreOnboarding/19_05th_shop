@@ -3,7 +3,7 @@ import { AppLayout, TabMenu } from 'components/common';
 import { ContactList } from 'components/contacts';
 import { get } from 'apis/requestAPIs/contacts';
 import { ContactType, QaItems } from 'apis/models/Contacts.type';
-import * as S from './contacts.style';
+import * as S from 'components/contacts/Contacts.style';
 
 import { SERVICE_CENTER } from 'consts/constants';
 const Contacts = () => {
