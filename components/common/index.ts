@@ -4,3 +4,4 @@ export { default as FullWidthButton } from './FullWidthButton/FullWidthButton';
 export { default as Category } from './Category/Category';
 export { default as AppLayout } from './AppLayout/AppLayout';
 export { default as BackDrop } from './BackDrop/BackDrop';
+export { default as Spinner } from './Spinner/Spinner';

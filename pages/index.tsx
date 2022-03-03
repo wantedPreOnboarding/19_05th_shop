@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import type { NextPage } from 'next';
 import { AppLayout } from 'components/common';
 import { YOUCON_MYCON } from 'consts/constants';
 import { get } from 'apis/requestAPIs/home';
-import { MainCategory } from 'apis/models/Home.type';
-import { DiscountCon } from 'components/index/index.type';
 import { MainCategories, DiscountItem, BannerSlider } from 'components/index';
 import useSWR from 'swr';
 
@@ -17,7 +15,7 @@ const Home: NextPage = () => {
     return <div>loadding</div>;
   }
   if (mainCategorie.error) {
-    console.log(mainCategorie.error);
+    console.error(mainCategorie.error);
   }
 
   const disItems =
@@ -37,7 +35,7 @@ const Home: NextPage = () => {
   }
 
   if (discountItems.error) {
-    console.log(discountItems.error);
+    console.error(discountItems.error);
   }
 
   return (

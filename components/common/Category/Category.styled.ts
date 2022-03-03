@@ -9,7 +9,6 @@ export const Item = styled.li`
   margin: 1px;
   border-radius: 5px;
   background: #fff;
-  cursor: pointer;
   :nth-last-of-type(3n) {
     margin-right: 0;
   }
@@ -21,6 +20,7 @@ export const ImgWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 
   img {
     width: 36px;
