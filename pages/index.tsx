@@ -1,18 +1,17 @@
-import React from 'react';
-import type { NextPage } from 'next';
-import { AppLayout } from 'components/common';
+import React, { ReactNode } from 'react';
+import { AppLayout, Spinner } from 'components/common';
 import { YOUCON_MYCON } from 'consts/constants';
 import { get } from 'apis/requestAPIs/home';
 import { MainCategories, DiscountItem, BannerSlider } from 'components/index';
 import useSWR from 'swr';
 
-const Home: NextPage = () => {
+const Home = () => {
   const mainCategorie = useSWR('mainCategories', () => get.mainCategories());
   const discountItems = useSWR('discountItems', () => get.discountItems());
 
   const categories = mainCategorie.data && mainCategorie.data.conCategory1s;
   if (!mainCategorie.data) {
-    return <div>loadding</div>;
+    return <Spinner />;
   }
   if (mainCategorie.error) {
     console.error(mainCategorie.error);
@@ -31,7 +30,7 @@ const Home: NextPage = () => {
     }));
 
   if (!disItems) {
-    return <div>loadding</div>;
+    return <Spinner />;
   }
 
   if (discountItems.error) {
@@ -39,11 +38,16 @@ const Home: NextPage = () => {
   }
 
   return (
-    <AppLayout title={YOUCON_MYCON}>
+    <>
       <BannerSlider />
       {categories && <MainCategories categories={categories} />}
       {disItems && <DiscountItem disItems={disItems} />}
-    </AppLayout>
+    </>
   );
 };
+
+Home.getLayout = function getLayout(page: ReactNode) {
+  return <AppLayout title={YOUCON_MYCON}>{page}</AppLayout>;
+};
+
 export default Home;
