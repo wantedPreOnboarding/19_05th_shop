@@ -23,7 +23,7 @@ export const BannerBox = styled.div<{ color: string }>`
 
 export const BannerWrap = styled.div<BannerSliderProps>`
   display: flex;
-  transition: all 1s ease-in-out;
+  transition: ${props => props.movingOn && 'all 1s ease-in-out'};
   transform: ${props => props.currentSlide && `translateX(-${props.currentSlide}00%)`};
 `;
 export const NavBtns = styled.div`

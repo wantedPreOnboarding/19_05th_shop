@@ -3,20 +3,31 @@ import * as S from './BannerSlider.styled';
 import { colorArray, BannerMouseEvent, BannerTouchEvent } from './BannerSlider.type';
 
 const BannerSlider = () => {
-  const TOTAL_SLIDES = 2;
+  const TOTAL_SLIDES = 4;
   const colorLists: colorArray[] = [
-    { num: 0, color: 'e9e1d4' },
-    { num: 1, color: 'f4ddad' },
-    { num: 2, color: 'f1bcae' },
+    { num: 3, color: 'f1bcae' },
+    { num: 1, color: 'e9e1d4' },
+    { num: 2, color: 'f4ddad' },
+    { num: 3, color: 'f1bcae' },
+    { num: 1, color: 'e9e1d4' },
   ];
 
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [currentSlide, setCurrentSlide] = useState<number>(1);
   const [startClientX, setStartClientX] = useState<number>(0);
   const [endClientX, setEndClientX] = useState<number>(0);
 
   const [cursorOn, setCursorOn] = useState<boolean>(false);
+  const [movingOn, setMovingOn] = useState<boolean>(true);
 
   const bannerHandler = (idx: number) => {
+    if ((currentSlide === 4 && idx === 1) || (currentSlide === 0 && idx === 3)) {
+      setMovingOn(false);
+      setCurrentSlide(idx);
+      setTimeout(() => {
+        setMovingOn(true);
+      }, 500);
+    }
+
     setCurrentSlide(idx);
   };
 
@@ -43,14 +54,22 @@ const BannerSlider = () => {
 
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
-      setCurrentSlide(0);
+      setMovingOn(false);
+      setCurrentSlide(1);
+      setTimeout(() => {
+        setMovingOn(true);
+      }, 500);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
   };
   const prevSlide = () => {
     if (currentSlide === 0) {
-      return;
+      setMovingOn(false);
+      setCurrentSlide(3);
+      setTimeout(() => {
+        setMovingOn(true);
+      }, 500);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
@@ -76,8 +95,8 @@ const BannerSlider = () => {
 
   return (
     <S.Wrapper>
-      <S.BannerWrap currentSlide={currentSlide}>
-        {colorLists.map(colorList => (
+      <S.BannerWrap movingOn={movingOn} currentSlide={currentSlide}>
+        {colorLists.map((colorList, index) => (
           <S.BannerBox
             onTouchStart={e => touchStartHandler(e)}
             onTouchEnd={e => touchEndtHandler(e)}
@@ -85,7 +104,7 @@ const BannerSlider = () => {
             onMouseUp={e => mouseUpHandler(e)}
             onMouseEnter={mouseEnterHandler}
             onMouseLeave={mouseLeaveHandler}
-            key={colorList.num}
+            key={index}
             color={colorList.color}
           >
             <div />
@@ -93,14 +112,16 @@ const BannerSlider = () => {
         ))}
       </S.BannerWrap>
       <S.NavBtns>
-        {colorLists.map(colorList => (
-          <S.NavBtn
-            currentSlide={currentSlide}
-            slideNum={colorList.num}
-            key={colorList.num}
-            onClick={() => bannerHandler(colorList.num)}
-          />
-        ))}
+        {colorLists.splice(1, 3).map((dotList, index) => {
+          return (
+            <S.NavBtn
+              currentSlide={currentSlide === 4 ? 1 : currentSlide === 0 ? 3 : currentSlide}
+              slideNum={dotList.num}
+              key={index}
+              onClick={() => bannerHandler(dotList.num)}
+            />
+          );
+        })}
       </S.NavBtns>
     </S.Wrapper>
   );
