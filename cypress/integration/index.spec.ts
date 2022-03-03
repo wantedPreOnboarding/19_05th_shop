@@ -14,8 +14,5 @@ describe('렌딩페이지 테스트', () => {
 
     // 떙처리 섹션의 놓치지 마세요 문구를 확인합니다.
     cy.get('section[class*=DiscountItemstyled__MenuTitle] > span').contains('놓치지 마세요');
-
-    // 떙처리 섹션의 상품이 8개 인지 확인합니다.
-    cy.get('div[class*=DiscountItemstyled__Box]').children().should('have.length', 8);
   });
 });
