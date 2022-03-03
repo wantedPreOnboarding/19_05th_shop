@@ -2,17 +2,26 @@ import React, { ReactNode, useState } from 'react';
 import { AppLayout } from 'components/common';
 import { TextsSection, OptionSelector, SelectedOptionViewer } from 'components/items';
 import * as S from 'components/items/Items.styled';
-import { GetServerSideProps } from 'next';
 import { get } from 'apis/requestAPIs/items';
-import ItemAPIType from 'apis/models/Items.type';
 import { commaNumber, dateFormatting } from 'utils';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 const indexGenerator = (caution: string, index: number) => ({ id: index, text: caution });
 
-const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
+const Items = () => {
+  const router = useRouter();
+  const { conItemId } = router.query;
+
+  const { data, error } = useSWR(conItemId, (conItemId: string) => get.items(conItemId));
+
   const [isActivePurchaseBtn, setIsActivePurchaseBtn] = useState(true);
   const [isActiveOptionSelector, setIsActiveOptionSelector] = useState(false);
   const [selectedOptionId, setSelectedOptionId] = useState<number>(-1);
+
+  if (!data || error) {
+    return <div>에러 발생</div>;
+  }
 
   const {
     name: itemName,
@@ -23,7 +32,7 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
     warning,
     options,
     imageUrl,
-  } = data;
+  } = data.conItem;
 
   const brandCautionList = brandInfo.info?.split('\n').map(indexGenerator);
 
@@ -42,11 +51,11 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
     discountRate: Math.floor((1 - minSellingPrice / originalPrice) * 100),
   }));
 
-  const hanleSelector = (state: 'open' | 'close') => {
+  const handleSelector = (state: 'open' | 'close') => {
     if (!isActivePurchaseBtn && state === 'open') return;
     setSelectedOptionId(-1);
-    setIsActivePurchaseBtn(state === 'open' ? false : true);
-    setIsActiveOptionSelector(state === 'open' ? true : false);
+    setIsActivePurchaseBtn(state === 'close');
+    setIsActiveOptionSelector(state === 'open');
   };
 
   const handlePurchaseBtnClick = () => {
@@ -57,7 +66,7 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
       window.alert('베타 버전에서는 구매하실 수 없습니다.');
       return;
     }
-    hanleSelector('open');
+    handleSelector('open');
   };
 
   const handleOptionSelectorClick = (optionId: number) => {
@@ -101,9 +110,9 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
       </S.HasActiveStateFullWidthButton>
       {isActiveOptionSelector && (
         <>
-          <S.NotFullBackDrop onClick={() => hanleSelector('close')} />
+          <S.NotFullBackDrop onClick={() => handleSelector('close')} />
           <OptionSelector
-            closeSelector={() => hanleSelector('close')}
+            closeSelector={() => handleSelector('close')}
             options={optionsWithDiscountRate}
             handleSelect={handleOptionSelectorClick}
           />
@@ -112,7 +121,7 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
       {selectedOptionId !== -1 && (
         <SelectedOptionViewer
           openSelector={() => {
-            hanleSelector('open');
+            handleSelector('open');
           }}
           option={getSelectedOptionText(selectedOptionId)}
         />
@@ -123,14 +132,6 @@ const Items = ({ data }: { data: ItemAPIType['conItem'] }) => {
 
 Items.getLayout = function getLayout(page: ReactNode) {
   return <AppLayout>{page}</AppLayout>;
-};
-
-export const getServerSideProps: GetServerSideProps = async context => {
-  const { conItemId } = context.query;
-
-  const data = typeof conItemId === 'string' ? await get.items(conItemId) : null;
-
-  return { props: { data: data?.conItem } };
 };
 
 export default Items;
