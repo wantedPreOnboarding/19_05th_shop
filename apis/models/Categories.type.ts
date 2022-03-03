@@ -20,6 +20,7 @@ export interface ConCategory2s {
 export interface ContItems {
   id: number;
   name: string;
+  discountRate:number;
   originalPrice: number;
   minSellingPrice: number;
   count?: number;

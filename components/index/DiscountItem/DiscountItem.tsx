@@ -14,7 +14,7 @@ const DiscountItem = ({ disItems }: DiscountCon) => {
           disItems.map(disItem => {
             return (
               <S.Box key={disItem.itemName}>
-                <ItemThumbnail {...disItem} />{' '}
+                <ItemThumbnail {...disItem} />
               </S.Box>
             );
           })}

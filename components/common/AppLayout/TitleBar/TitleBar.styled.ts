@@ -32,4 +32,5 @@ export const LeftBtn = styled(TitleIcon)`
 
 export const CancleBtn = styled(TitleIcon)`
   right: 19px;
+  cursor: pointer;
 `;
