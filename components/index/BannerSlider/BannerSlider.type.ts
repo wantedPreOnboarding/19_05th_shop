@@ -4,6 +4,7 @@ export default interface BannerSliderProps {
   currentSlide?: number;
   slideNum?: number;
   imageUrl?: string;
+  movingOn?: boolean;
 }
 
 export interface colorArray {
