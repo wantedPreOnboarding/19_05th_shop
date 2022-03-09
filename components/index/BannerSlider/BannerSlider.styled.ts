@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   }
 `;
 export const BannerBox = styled.div<{ color: string }>`
+  cursor: grab;
   div {
     height: 141px;
     width: 100vw;
