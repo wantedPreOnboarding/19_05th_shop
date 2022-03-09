@@ -10,12 +10,6 @@ const Home = () => {
   const discountItems = useSWR('discountItems', () => get.discountItems());
 
   const categories = mainCategorie.data && mainCategorie.data.conCategory1s;
-  if (!mainCategorie.data) {
-    return <Spinner />;
-  }
-  if (mainCategorie.error) {
-    console.error(mainCategorie.error);
-  }
 
   const disItems =
     discountItems.data &&
@@ -29,19 +23,25 @@ const Home = () => {
       minSellingPrice: conItem.minSellingPrice,
     }));
 
-  if (!disItems) {
-    return <Spinner />;
-  }
-
   if (discountItems.error) {
     console.error(discountItems.error);
   }
 
+  if (mainCategorie.error) {
+    console.error(mainCategorie.error);
+  }
+
   return (
     <>
-      <BannerSlider />
-      {categories && <MainCategories categories={categories} />}
-      {disItems && <DiscountItem disItems={disItems} />}
+      {mainCategorie && disItems ? (
+        <>
+          <BannerSlider />
+          {categories && <MainCategories categories={categories} />}
+          {disItems && <DiscountItem disItems={disItems} />}
+        </>
+      ) : (
+        <Spinner />
+      )}
     </>
   );
 };
