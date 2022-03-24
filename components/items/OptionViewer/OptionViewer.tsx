@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react';
 import { Option } from 'apis/models/Items.type';
 import { commaNumber, dateFormatting } from 'utils';
 import { OptionSelector, SelectedOptionViewer } from '..';
-import * as S from 'components/items/Items.styled';
+import * as S from './OptionsViewer.styled';
 
 const OptionViewer = ({
   options,
