@@ -15,3 +15,7 @@ export interface QaItems {
   question: string;
   answer: string;
 }
+
+export interface ContactsProps {
+  data: ContactsAPIType;
+}
