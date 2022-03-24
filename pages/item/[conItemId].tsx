@@ -10,14 +10,14 @@ const ItemPage = () => {
   const router = useRouter();
   const { conItemId } = router.query;
 
-  const { data: ItemInfo, error } = useSWR(conItemId, (conItemId: string) => get.items(conItemId));
+  const { data: itemInfo, error } = useSWR(conItemId, (conItemId: string) => get.items(conItemId));
 
   if (error) {
     return <Error statusCode={error.response.status} />;
-  } else if (!ItemInfo) {
+  } else if (!itemInfo) {
     return <Spinner />;
   } else {
-    return <Item data={ItemInfo.conItem}></Item>;
+    return <Item data={itemInfo.conItem}></Item>;
   }
 };
 
