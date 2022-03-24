@@ -7,7 +7,7 @@ import CategoriesProps from './index.type';
 const Categories = ({ data: { tabInfo, categoryInfo } }: CategoriesProps): ReactElement => {
   const getDisCountItem = (name: string, innerItem: ContItems) => ({
     brand: name,
-    href: `/items/${innerItem.id}`,
+    href: `/item/${innerItem.id}`,
     imageUrl: innerItem.imageUrl,
     itemName: innerItem.name,
     discountRate: innerItem.discountRate,

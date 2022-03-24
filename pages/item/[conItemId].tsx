@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { AppLayout, Spinner } from 'components/common';
 import Item from 'components/item';
 import Error from 'pages/_error';
-import { get } from 'apis/requestAPIs/items';
+import { get } from 'apis/requestAPIs/item';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 

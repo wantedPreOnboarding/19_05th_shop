@@ -1,5 +1,5 @@
 import requests from '../core';
-import ItemsAPIType from '../models/Items.type';
+import ItemsAPIType from '../models/Item.type';
 import { URL } from '../consts';
 import slugMatcher from 'apis/utils/slugMatcher';
 

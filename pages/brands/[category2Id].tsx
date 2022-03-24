@@ -32,7 +32,7 @@ const Brands = () => {
                 `${(item.originalPrice - item.minSellingPrice) * 0.01}`,
               );
               const newItem = {
-                href: `/items/${item.id}`,
+                href: `/item/${item.id}`,
                 id: item.id,
                 itemName: item.name,
                 originalPrice: item.originalPrice,

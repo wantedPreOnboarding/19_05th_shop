@@ -1,4 +1,4 @@
-import { ConItem } from 'apis/models/Items.type';
+import { ConItem } from 'apis/models/Item.type';
 
 export default interface ItemProps {
   data: ConItem;
