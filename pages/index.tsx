@@ -14,7 +14,7 @@ const Home = () => {
   const disItems =
     discountItems.data &&
     discountItems.data.conItems.map(conItem => ({
-      href: `items/${conItem.id}`,
+      href: `item/${conItem.id}`,
       itemName: conItem.name,
       imageUrl: conItem.imageUrl,
       brand: conItem.conCategory2.name,

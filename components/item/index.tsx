@@ -1,23 +1,12 @@
-import React, { ReactNode } from 'react';
-import { AppLayout, Spinner } from 'components/common';
-import { OptionViewer, TextsSection } from 'components/items';
-import * as S from 'components/items/Items.styled';
-import { get } from 'apis/requestAPIs/items';
-import { useRouter } from 'next/router';
-import useSWR from 'swr';
+import * as S from './index.styled';
+import { OptionViewer, TextsSection } from './innerPaths';
+
+import React, { ReactElement } from 'react';
+import ItemProps from './index.type';
 
 const indexGenerator = (caution: string, index: number) => ({ id: index, text: caution });
 
-const Items = () => {
-  const router = useRouter();
-  const { conItemId } = router.query;
-
-  const { data } = useSWR(conItemId, (conItemId: string) => get.items(conItemId));
-
-  if (!data) {
-    return <Spinner />;
-  }
-
+const Items = ({ data }: ItemProps): ReactElement => {
   const {
     name: itemName,
     conCategory2: brandInfo,
@@ -27,7 +16,7 @@ const Items = () => {
     warning,
     options,
     imageUrl,
-  } = data.conItem;
+  } = data;
 
   const brandCautionList = brandInfo.info?.split('\n').map(indexGenerator);
 
@@ -64,10 +53,6 @@ const Items = () => {
       />
     </S.ItemsLayout>
   );
-};
-
-Items.getLayout = function getLayout(page: ReactNode) {
-  return <AppLayout>{page}</AppLayout>;
 };
 
 export default Items;
