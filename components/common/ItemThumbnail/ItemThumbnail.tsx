@@ -20,7 +20,7 @@ const ItemThumbnail = ({
     <Link href={href}>
       <a className="presentation-a">
         <S.ItemThumbnailWrapper>
-          <Image width="70" height="70" src={imageUrl} />
+          <Image width="70" height="70" src={imageUrl} alt={itemName} />
         </S.ItemThumbnailWrapper>
         <DescThumbnail
           brand={brand}
