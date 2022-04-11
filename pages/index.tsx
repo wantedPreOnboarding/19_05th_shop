@@ -4,6 +4,7 @@ import { YOUCON_MYCON } from 'consts/constants';
 import { get } from 'apis/requestAPIs/home';
 import { MainCategories, DiscountItem, BannerSlider } from 'components/index';
 import useSWR from 'swr';
+import Error from './_error';
 
 const Home = () => {
   const mainCategorie = useSWR('mainCategories', () => get.mainCategories());
@@ -24,26 +25,22 @@ const Home = () => {
     }));
 
   if (discountItems.error) {
-    console.error(discountItems.error);
+    return <Error statusCode={discountItems.error.response.status} />;
+  } else if (mainCategorie.error) {
+    return <Error statusCode={mainCategorie.error.response.status} />;
+  } else {
+    return (
+      <>
+        {
+          <>
+            <BannerSlider />
+            {categories ? <MainCategories categories={categories} /> : <Spinner />}
+            {disItems ? <DiscountItem disItems={disItems} /> : <Spinner />}
+          </>
+        }
+      </>
+    );
   }
-
-  if (mainCategorie.error) {
-    console.error(mainCategorie.error);
-  }
-
-  return (
-    <>
-      {mainCategorie && disItems ? (
-        <>
-          <BannerSlider />
-          {categories && <MainCategories categories={categories} />}
-          {disItems && <DiscountItem disItems={disItems} />}
-        </>
-      ) : (
-        <Spinner />
-      )}
-    </>
-  );
 };
 
 Home.getLayout = function getLayout(page: ReactNode) {
