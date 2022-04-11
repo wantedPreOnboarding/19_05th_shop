@@ -15,7 +15,7 @@ const Category = ({ item, page }: CategoryProps) => {
         }}
       >
         <S.ImgWrapper>
-          <img src={item.imageUrl} alt={item.imageUrl} />
+          <img src={item.imageUrl} alt={item.imageUrl} width={36} height={51} />
           <span>{item.name}</span>
         </S.ImgWrapper>
       </Link>

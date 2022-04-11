@@ -23,7 +23,6 @@ export const ImgWrapper = styled.div`
   cursor: pointer;
 
   img {
-    width: 36px;
     padding-bottom: 15px;
   }
 
