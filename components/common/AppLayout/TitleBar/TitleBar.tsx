@@ -9,7 +9,7 @@ const TitleBar = ({ title, sideMenuHandler }: TitleBarProps) => {
   return (
     <S.Wrapper title={title}>
       {title === YOUCON_MYCON ? (
-        <S.LeftBtn
+        <S.LeftIcon
           src={`${process.env.ASSET_PATH}/hamburgerBtn.svg`}
           width="30px"
           height="30px"
@@ -18,7 +18,7 @@ const TitleBar = ({ title, sideMenuHandler }: TitleBarProps) => {
       ) : title === SERVICE_CENTER ? (
         ''
       ) : (
-        <S.LeftBtn
+        <S.LeftIcon
           src={`${process.env.ASSET_PATH}/back.svg`}
           width="17px"
           height="17px"
@@ -27,8 +27,10 @@ const TitleBar = ({ title, sideMenuHandler }: TitleBarProps) => {
       )}
       {title && <S.PageTitle>{title}</S.PageTitle>}
       {title === SERVICE_CENTER && (
-        <Link href="/">
-          <S.CancleBtn src={`${process.env.ASSET_PATH}/close.svg`} width="20px" height="20px" />
+        <Link href="/" passHref>
+          <a>
+            <S.CancleIcon src={`${process.env.ASSET_PATH}/close.svg`} width="20px" height="20px" />
+          </a>
         </Link>
       )}
     </S.Wrapper>

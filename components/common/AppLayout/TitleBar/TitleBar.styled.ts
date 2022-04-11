@@ -25,12 +25,12 @@ const TitleIcon = styled.img`
   position: absolute;
 `;
 
-export const LeftBtn = styled(TitleIcon)`
+export const LeftIcon = styled(TitleIcon)`
   left: 10px;
   cursor: pointer;
 `;
 
-export const CancleBtn = styled(TitleIcon)`
+export const CancleIcon = styled(TitleIcon)`
   right: 19px;
   cursor: pointer;
 `;
