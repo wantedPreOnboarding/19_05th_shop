@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://19-05th-shop.vercel.app/sitemap.xml
